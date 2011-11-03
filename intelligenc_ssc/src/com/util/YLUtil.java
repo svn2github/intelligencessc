@@ -19,7 +19,7 @@ public class YLUtil {
 		return ylcs;
 	}
 
-	public static List<Integer> getYiLouList(List<Integer> numList) {
+	public static List<Integer> getYLList(List<Integer> numList) {
 
 		List<Integer> ylList = new ArrayList<Integer>();
 		for (int i = 0; i <= 9; i++) {
