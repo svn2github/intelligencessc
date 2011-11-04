@@ -11,7 +11,9 @@ import java.util.List;
 public class SrcUtil {
 	//Filename like "src/3D.txt"
 	// return a int array list
-	// 按照时间倒序,最新的数据在最上面
+	// 按照时间升序
+	// list 0 - 2011-10-01 -001
+	// list 1 - 2011-10-02 -002 
 	public static List<Integer> readFile(String filename){
 		File file = new File(filename);
         BufferedReader reader = null;
@@ -39,11 +41,7 @@ public class SrcUtil {
                 }
             }
         }
-        int j = 0;
-		for (int i = numList.size() - 1; i >= 0; i--) {
-			tempList.add(j, numList.get(i));
-			j++;
-		}
+        tempList = ListUtil.revertList(numList);
 		return tempList;
 	}
 	
@@ -84,6 +82,9 @@ public class SrcUtil {
 	
 	
 	public static void main(String[] args) {
+        List <Integer> numList = new  ArrayList<Integer>();
+        numList = readFile("src/test.txt");
+        System.out.println(numList.get(0));
 		
 		
 	}
