@@ -1,6 +1,5 @@
 package com.util;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,32 +18,29 @@ public class YLUtil {
 		return ylcs;
 	}
 
-	public static List<Integer> getYLList(List<Integer> numList) {
+	// 按照遗漏顺序降序
+	public static List<Integer> ylListSort(List<Integer> numList) {
+		int tmp;
+		int tmp2;
 
 		List<Integer> ylList = new ArrayList<Integer>();
+		List<Integer> taglist = new ArrayList<Integer>();
+
 		for (int i = 0; i <= 9; i++) {
 			ylList.add(getYLcount(i, numList));
 		}
 
-		return ylList;
-	}
-
-	//按照遗漏顺序降序
-	public static List<Integer> ylListSort(List<Integer> numList) {
-		int tmp;
-		int tmp2;
-		List<Integer> taglist = new ArrayList<Integer>();
 		for (int m = 0; m <= 9; m++) {
 			taglist.add(m);
 		}
 
-		for (int i = 0; i < numList.size(); i++)
-			for (int j = 0; j < numList.size() - i - 1; ++j) {
-				if (numList.get(j) > numList.get(j + 1)) {
-					tmp = numList.get(j);
-					numList.set(j, numList.get(j + 1));
-					numList.set(j + 1, tmp);
-					
+		for (int i = 0; i < ylList.size(); i++)
+			for (int j = 0; j < ylList.size() - i - 1; ++j) {
+				if (ylList.get(j) > ylList.get(j + 1)) {
+					tmp = ylList.get(j);
+					ylList.set(j, ylList.get(j + 1));
+					ylList.set(j + 1, tmp);
+
 					tmp2 = taglist.get(j);
 					taglist.set(j, taglist.get(j + 1));
 					taglist.set(j + 1, tmp2);
@@ -60,8 +56,7 @@ public class YLUtil {
 		for (int i = 9; i >= 0; i--) {
 			taglist.add(i);
 		}
-		getYLcount(2,taglist);
-		
+		getYLcount(2, taglist);
 
 	}
 

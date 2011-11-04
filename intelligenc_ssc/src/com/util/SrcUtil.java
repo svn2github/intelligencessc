@@ -82,39 +82,7 @@ public class SrcUtil {
 		return tempList;
 	}
 	
-	//zhong jiang :0
-	public static List<Integer> gethou17maList(List <Integer> numList){
-		List<Integer> tempList = new ArrayList<Integer>();
-		List<Integer> tagList = new ArrayList<Integer>();
-		List<Integer> resList = new ArrayList<Integer>();
-		
-		
-		System.out.println(numList.size());
-		
-		 for(int i = 100 ;i < numList.size();i++){
-			 int num = numList.get(i);
-			 tempList = YLUtil.getYLList( numList.subList(i-10, i));
-			 tagList = YLUtil.ylListSort(tempList);
-			 if(checksuit(num,tagList)){
-				 resList.add(1);
-			 }else{
-				 resList.add(0);
-			 }
-		 }
-		 
-		return resList;
-	}
 	
-	public static boolean checksuit(int a , List<Integer> numlist){
-		boolean tag =false;
-		
-		for (int i : numlist){
-			if (a == i){
-				tag =true;
-			}
-		}
-		return tag;
-	}
 	public static void main(String[] args) {
 		
 		
