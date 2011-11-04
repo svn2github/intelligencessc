@@ -29,7 +29,8 @@ public class YLUtil {
 		return ylList;
 	}
 
-	//shengxu
+	//升序
+	//获得遗漏最大的七个数
 	public static List<Integer> get7maYL(List<Integer> numList) {
 		int tmp;
 		int tmp2;
