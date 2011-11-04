@@ -20,7 +20,7 @@ public class YLcondition {
 			tagList = YLUtil.ylListSort(tmplist);
 			
 			/*----取数 begin----------------------------------*/
-			tagList = tagList.subList(3, 10);
+			tagList = tagList.subList(1, 8);
 			/*----取数 end----------------------------------*/
 
 
