@@ -22,29 +22,6 @@ public class Integration {
 		return null;
 	}
 	
-	//hit的深度0-..
-	//
-	private static int getHitDepth(List<Integer> numList){
-		int res = 0;
-		for(int i =0; i < numList.size() ; i++){
-			res += numList.get(i);
-			if(res < i+1){
-				break;
-			}
-		}
-		return res;
-		
-	}
-	
-	private static int getNotHitDepth(List<Integer> numList){
-		int res = 0;
-		for(int i =0; i < numList.size() ; i++){
-			res += numList.get(i);
-			if(res > 0){
-				break;
-			}
-		}
-		return res;
-	}
+
 
 }
