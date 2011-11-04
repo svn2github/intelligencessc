@@ -94,7 +94,7 @@ public class SrcUtil {
 		 for(int i = 100 ;i < numList.size();i++){
 			 int num = numList.get(i);
 			 tempList = YLUtil.getYLList( numList.subList(i-10, i));
-			 tagList = YLUtil.get7maYL(tempList);
+			 tagList = YLUtil.ylListSort(tempList);
 			 if(checksuit(num,tagList)){
 				 resList.add(1);
 			 }else{

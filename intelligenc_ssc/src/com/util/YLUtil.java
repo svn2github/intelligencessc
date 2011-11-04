@@ -29,9 +29,8 @@ public class YLUtil {
 		return ylList;
 	}
 
-	//升序
-	//获得遗漏最大的七个数
-	public static List<Integer> get7maYL(List<Integer> numList) {
+	//按照遗漏顺序降序
+	public static List<Integer> ylListSort(List<Integer> numList) {
 		int tmp;
 		int tmp2;
 		List<Integer> taglist = new ArrayList<Integer>();
@@ -53,7 +52,6 @@ public class YLUtil {
 
 			}
 
-		taglist = taglist.subList(0, 7);
 		return taglist;
 	}
 
