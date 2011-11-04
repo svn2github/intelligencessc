@@ -22,6 +22,7 @@ public class YLUtil {
 	public static List<Integer> ylListSort(List<Integer> numList) {
 		int tmp;
 		int tmp2;
+		numList = ListUtil.revertList(numList);
 
 		List<Integer> ylList = new ArrayList<Integer>();
 		List<Integer> taglist = new ArrayList<Integer>();

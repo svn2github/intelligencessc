@@ -18,27 +18,32 @@ public class ConditionUtil {
 
 	public static int getHitDepth(List<Integer> numList) {
 		numList = ListUtil.revertList(numList);
+		int count = 0;
 		int res = 0;
 		for (int i = 0; i < numList.size(); i++) {
 			res += numList.get(i);
 			if (res < i + 1) {
 				break;
 			}
+			count++;
 		}
-		return res;
+		return count;
 
 	}
 
 	public static int getNotHitDepth(List<Integer> numList) {
 		numList = ListUtil.revertList(numList);
-		int res = 0;
+		int rest = 0;
+		int count = 0;
 		for (int i = 0; i < numList.size(); i++) {
-			res += numList.get(i);
-			if (res > 0) {
+			rest += numList.get(i);
+			
+			if (rest > 0) {
 				break;
 			}
+			count++;
 		}
-		return res;
+		return count;
 	}
 
 }
