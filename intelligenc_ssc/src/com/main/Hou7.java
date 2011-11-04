@@ -11,13 +11,15 @@ public class Hou7 {
 		List<Integer> resList = new ArrayList<Integer>();
 		List<Integer> numList = new ArrayList<Integer>();
 
-		numList = SrcUtil.readFile("src/test.txt");
+		numList = SrcUtil.readFile("src/cqssc.txt");
 		resList = Integration.getResList(numList);
 
 		int count = 0;
+		int cc = 0;
 		for (int i = 0; i < resList.size() - 10; i++) {
+			cc ++;
 			int tvalue = -1;
-			for (int j = 0; j <= 4; j++) {
+			for (int j = 0; j < 1; j++) {
 				tvalue += resList.get(i + j);
 			}
 			if (tvalue == -1) {
@@ -25,7 +27,7 @@ public class Hou7 {
 			}
 		}
 
-		System.out.println(resList.size() + "------" + count);
+		System.out.println(cc + "------" + count);
 	}
 
 }
