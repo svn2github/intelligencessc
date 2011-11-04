@@ -11,9 +11,9 @@ import java.util.List;
 public class SrcUtil {
 	//Filename like "src/3D.txt"
 	// return a int array list
-	// 按照时间倒序
-	// list 0 - 2011-10-02 -002
-	// list 1 - 2011-10-01 -001 
+	// 按照时间升序
+	// list 0 - 2011-10-01 -001
+	// list 1 - 2011-10-02 -001 
 	public static List<Integer> readFile(String filename){
 		File file = new File(filename);
         BufferedReader reader = null;
@@ -42,7 +42,7 @@ public class SrcUtil {
             }
         }
         tempList = ListUtil.revertList(numList);
-		return numList;
+		return tempList;
 	}
 	
 	public static List<Integer> readFile2(String filename){
