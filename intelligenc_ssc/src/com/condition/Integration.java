@@ -21,7 +21,8 @@ public class Integration {
 			System.err.println("error");
 		}
 		
-		for(int i = 0; i <len; i++){
+		for (int i = 120; i < len; i++){
+			
 			
 		}
 		
