@@ -5,7 +5,6 @@ import java.util.List;
 public class ConditionUtil {
 	public static boolean checksuit(int a, List<Integer> numlist) {
 		boolean tag = false;
-
 		for (int i : numlist) {
 			if (a == i) {
 				tag = true;

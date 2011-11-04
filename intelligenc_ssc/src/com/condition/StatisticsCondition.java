@@ -7,6 +7,7 @@ import com.util.StatisticsUtil;
 public class StatisticsCondition {
 
 	public static List<Integer> getSCHitList(List<Integer> numList) {
+		
 		List<Integer> tempList = new ArrayList<Integer>();
 		List<Integer> tagList = new ArrayList<Integer>();
 		List<Integer> resList = new ArrayList<Integer>();
