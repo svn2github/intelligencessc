@@ -1,10 +1,8 @@
-package com.main;
+package com.condition;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.condition.StatisticsCondition;
-import com.condition.YLcondition;
 
 public class Integration {
 	
@@ -25,14 +23,28 @@ public class Integration {
 	}
 	
 	//hit的深度0-..
+	//
 	private static int getHitDepth(List<Integer> numList){
+		int res = 0;
+		for(int i =0; i < numList.size() ; i++){
+			res += numList.get(i);
+			if(res < i+1){
+				break;
+			}
+		}
+		return res;
 		
-		return 0;
 	}
 	
 	private static int getNotHitDepth(List<Integer> numList){
-		
-		return 0;
+		int res = 0;
+		for(int i =0; i < numList.size() ; i++){
+			res += numList.get(i);
+			if(res > 0){
+				break;
+			}
+		}
+		return res;
 	}
 
 }
