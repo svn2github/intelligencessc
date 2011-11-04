@@ -16,7 +16,7 @@ public class ConditionUtil {
 		return tag;
 	}
 	
-	private static int getHitDepth(List<Integer> numList){
+	public static int getHitDepth(List<Integer> numList){
 		numList =ListUtil.revertList(numList);
 		int res = 0;
 		for(int i =0; i < numList.size() ; i++){
@@ -29,7 +29,7 @@ public class ConditionUtil {
 		
 	}
 	
-	private static int getNotHitDepth(List<Integer> numList){
+	public static int getNotHitDepth(List<Integer> numList){
 		numList =ListUtil.revertList(numList);
 		int res = 0;
 		for(int i =0; i < numList.size() ; i++){

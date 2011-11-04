@@ -34,7 +34,6 @@ public class StatisticsUtil {
 				if (tmpList.get(j) > tmpList.get(j + 1)) {
 
 					tmp = tmpList.get(j);
-					System.out.println(j);
 					tmpList.set(j, tmpList.get(j + 1));
 					numList.set(j + 1, tmp);
 
