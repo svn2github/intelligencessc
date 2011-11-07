@@ -5,7 +5,7 @@ import java.util.List;
 
 public class HitSrc {
 	
-	public static final List<Integer> NUMLIST1=initialList(0,1,2,3,4,8,9);
+	public static final List<Integer> NUMLIST1 = initialList(0,1,2,3,4,8,9);
 	public static final List<Integer> NUMLIST2=initialList(0,3,4,5,4,7,9);
 	public static final List<Integer> NUMLIST3=initialList(0,1,5,6,7,8,9);
 	public static final List<Integer> NUMLIST4=initialList(1,2,3,4,5,6,7);
@@ -25,7 +25,7 @@ public class HitSrc {
 		tmpList.add(a6);
 		tmpList.add(a7);
 		
-		return null;
+		return tmpList;
 	}
 
 }
