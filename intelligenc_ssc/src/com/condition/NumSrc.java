@@ -3,7 +3,7 @@ package com.condition;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HitSrc {
+public class NumSrc {
 	
 	public static final List<Integer> NUMLIST1 = initialList(0,1,2,3,4,8,9);
 	public static final List<Integer> NUMLIST2=initialList(0,3,4,5,4,7,9);
