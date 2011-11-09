@@ -73,7 +73,7 @@ public class HouTwo {
 		}
 		
 		try {
-			FileWriter writer = new FileWriter("src/res.txt", true);
+			FileWriter writer = new FileWriter("src/res2.txt", true);
 			for(int i : resList){
 				writer.write(String.valueOf(i)+"\n");
 			}

@@ -36,7 +36,7 @@ public class Analysis {
 		for (int i = 0; i < numList.size() - 10; i++) {
 
 			int tvalue = -1;
-			for (int j = 0; j < 1; j++) {
+			for (int j = 0; j < 9; j++) {
 				tvalue += numList.get(i + j);
 			}
 			if (tvalue == -1) {
