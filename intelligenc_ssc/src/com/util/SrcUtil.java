@@ -35,8 +35,8 @@ public class SrcUtil {
             }
             reader.close();
         } catch (IOException e) {
+        	System.err.println("read file error!!!");
             e.printStackTrace();
-            System.err.println("read file error!!!");
         } finally {
             if (reader != null) {
                 try {
@@ -67,6 +67,7 @@ public class SrcUtil {
             }
             reader.close();
         } catch (IOException e) {
+        	System.err.println("read file error!!!");
             e.printStackTrace();
         } finally {
             if (reader != null) {
