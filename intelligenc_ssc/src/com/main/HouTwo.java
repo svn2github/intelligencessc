@@ -13,8 +13,18 @@ import com.util.YLUtil;
 public class HouTwo {
 	public static void main(String[] args) {
 		
-
-
+		List<Integer> slist = new ArrayList<Integer>();
+		slist.add(0);
+		slist.add(11);
+		slist.add(22);
+		slist.add(33);
+		slist.add(44);
+		slist.add(55);
+		slist.add(66);
+		slist.add(77);
+		slist.add(88);
+		slist.add(99);
+   
 		List<Integer> resList = new ArrayList<Integer>();
 
 		List<Integer> numList = new ArrayList<Integer>();
@@ -37,6 +47,7 @@ public class HouTwo {
 			List<Integer> yllist = new ArrayList<Integer>();
 			List<Integer> taglist = new ArrayList<Integer>();
 			List<Integer> tmplist = new ArrayList<Integer>();
+			List<Integer> tlist = new ArrayList<Integer>();
 			
 			tmp4list = YLUtil.ylListSort(num4List.subList(i - 20, i - 1), 10).subList(1, 10);
 			tmp5list = YLUtil.ylListSort(num5List.subList(i - 20, i - 1), 10).subList(1, 10);
@@ -48,8 +59,10 @@ public class HouTwo {
 							+ String.valueOf(tmp5list.get(n))));
 				}
 
-			yllist = YLUtil.ylListSort(numList, 100).subList(88, 100);
-			taglist = ListUtil.subList(tmplist, yllist);
+			yllist = YLUtil.ylListSort(numList, 100).subList(97, 100);
+			tlist = ListUtil.subList(tmplist, yllist);
+			taglist = ListUtil.subList(tlist, slist);
+			
 			if (ConditionUtil.checksuit(numList.get(i), taglist) == true) {
 				resList.add(1);
 			} else {
