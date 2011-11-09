@@ -12,8 +12,8 @@ public class SrcUtil {
 	//Filename like "src/3D.txt"
 	// return a int array list
 	// 按照时间升序
-	// list 0 - 2011-10-01 -001
-	// list 1 - 2011-10-02 -001 
+	// list 0 - 2011-10-01 -123
+	// list 1 - 2011-10-02 -112 
 	public static List<Integer> readFile(String filename){
 		File file = new File(filename);
         BufferedReader reader = null;
@@ -27,7 +27,10 @@ public class SrcUtil {
                 String[] temp = tempString.split(" ");
                 String temp2 = temp[1];
                 String[] temp3 = temp2.split(",");
-                int num = Integer.parseInt(temp3[4]);
+                int num1 = Integer.parseInt(temp3[3]);
+                int num2 =  Integer.parseInt(temp3[4]);
+        		String tmp = String.valueOf(num1) + String.valueOf(num2);
+        		int num = Integer.parseInt(tmp);
                 numList.add(num);
             }
             reader.close();
@@ -45,7 +48,7 @@ public class SrcUtil {
 		return tempList;
 	}
 	
-	public static List<Integer> readFile2(String filename){
+	public static List<Integer> readFileSingle(String filename,int position){
 		File file = new File(filename);
         BufferedReader reader = null;
         List <Integer> numList = new  ArrayList<Integer>();
@@ -58,7 +61,7 @@ public class SrcUtil {
                 String[] temp = tempString.split(" ");
                 String temp2 = temp[1];
                 String[] temp3 = temp2.split(",");
-                int num = Integer.parseInt(temp3[3]);
+                int num = Integer.parseInt(temp3[position]);
                 numList.add(num);
             }
             reader.close();
@@ -72,11 +75,7 @@ public class SrcUtil {
                 }
             }
         }
-        int j = 0;
-		for (int i = numList.size() - 1; i >= 0; i--) {
-			tempList.add(j, numList.get(i));
-			j++;
-		}
+        tempList = ListUtil.revertList(numList);
 		return tempList;
 	}
 	
