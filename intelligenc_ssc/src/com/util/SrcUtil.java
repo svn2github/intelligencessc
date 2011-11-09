@@ -83,9 +83,9 @@ public class SrcUtil {
 	
 	
 	public static void main(String[] args) {
-        List <Integer> numList = new  ArrayList<Integer>();
-        numList = readFile("src/test.txt");
-        System.out.println(numList.get(0));
+//        List <Integer> numList = new  ArrayList<Integer>();
+//        numList = readFile("src/test.txt");
+//        System.out.println(numList.get(0));
 		
 		
 	}

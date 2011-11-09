@@ -1,12 +1,14 @@
 package com.condition;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.util.ListUtil;
 
 public class ConditionUtil {
+	
 	public static boolean checksuit(int a, List<Integer> numlist) {
-		numlist = ListUtil.revertList(numlist);
+		
 		boolean tag = false;
 		for (int i : numlist) {
 			if (a == i) {
@@ -46,4 +48,17 @@ public class ConditionUtil {
 		return count;
 	}
 
+	
+	public static void main(String[] args) {
+		
+		List <Integer> tlist = new ArrayList<Integer>();
+		tlist.add(1);
+		tlist.add(0);
+		tlist.add(1);
+		tlist.add(1);
+		tlist.add(2);
+		System.out.println("depth:"+getHitDepth(tlist));
+		System.out.println("No depth:"+getNotHitDepth(tlist));
+		
+	}
 }

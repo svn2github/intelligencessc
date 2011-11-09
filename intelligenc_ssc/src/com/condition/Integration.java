@@ -34,8 +34,8 @@ public class Integration {
 			List<Integer> tmplist1 = new ArrayList<Integer>();
 			List<Integer> tmplist2 = new ArrayList<Integer>();
 
-			tmplist1 = resList1.subList(i - 10, i-1);
-			tmplist2 = resList2.subList(i - 10, i-1);
+			tmplist1 = resList1.subList(i - 11, i-1);
+			tmplist2 = resList2.subList(i - 11, i-1);
 
 			hit1 = ConditionUtil.getHitDepth(tmplist1);
 			hit2 = ConditionUtil.getHitDepth(tmplist2);
@@ -43,28 +43,34 @@ public class Integration {
 			nhit1 = ConditionUtil.getNotHitDepth(tmplist1);
 			nhit2 = ConditionUtil.getNotHitDepth(tmplist2);
 			
-			if (nhit1 > 5) {
+			if (nhit1 > 0) {
 				nh1++;
 			}
-			if (nhit2 > 5) {
+			if (nhit2 > 0) {
 				nh2++;
 			}
+			
+//			if((hit1+hit2)%2 == 0){
+//				resList.add(resList2.get(i));
+//			}else{
+//				resList.add(resList1.get(i));
+//			}
 
 			if (hit1 > hit2 ) {
-				resList.add(resList2.get(i));
+				resList.add(resList1.get(i));
 //				System.out.println(nhit1 + "****" + nhit2+"========="+resList2.get(i));
 			} else if (hit2 > hit1  ) {
-				resList.add(resList1.get(i));
+				resList.add(resList2.get(i));
 //				System.out.println(nhit1 + "****" + nhit2+"========="+resList1.get(i));
 			} else if (nhit1 < nhit2 ) {
-				resList.add(resList1.get(i));
-			} else if (nhit2 > nhit1 ) {
 				resList.add(resList2.get(i));
+			} else if (nhit2 > nhit1 ) {
+				resList.add(resList1.get(i));
 			}
 			 else if (i % 2 == 0) {
-				resList.add(resList2.get(i));
-			} else {
 				resList.add(resList1.get(i));
+			} else {
+				resList.add(resList2.get(i));
 			}
 
 		}

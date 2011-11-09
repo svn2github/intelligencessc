@@ -19,20 +19,18 @@ public class YLUtil {
 	}
 
 	// 按照遗漏顺序降序
-	public static List<Integer> ylListSort(List<Integer> numList) {
+	public static List<Integer> ylListSort(List<Integer> numList,int len) {
 		int tmp;
 		int tmp2;
 		numList = ListUtil.revertList(numList);
-        System.out.println("revert :"+numList);
 		List<Integer> ylList = new ArrayList<Integer>();
 		List<Integer> taglist = new ArrayList<Integer>();
 
-		for (int i = 0; i <= 99; i++) {
+		for (int i = 0; i < len; i++) {
 			ylList.add(getYLcount(i, numList));
 		}
 
-		System.out.println("yllist"+ylList);
-		for (int m = 0; m <= 99; m++) {
+		for (int m = 0; m < len; m++) {
 			taglist.add(m);
 		}
 
@@ -54,15 +52,15 @@ public class YLUtil {
 	}
 
 	public static void main(String[] args) {
-		List<Integer> taglist = new ArrayList<Integer>();
-		for (int i = 99; i >= 0; i--) {
-			taglist.add(i);
-		}
-		taglist.set(98, 12);
-		taglist.set(95, 12);
-		System.out.println("taglist::"+taglist);
-		System.out.println("yl::"+getYLcount(12, taglist));
-		System.out.println(ylListSort(taglist));
+//		List<Integer> taglist = new ArrayList<Integer>();
+//		for (int i = 99; i >= 0; i--) {
+//			taglist.add(i);
+//		}
+//		taglist.set(98, 12);
+//		taglist.set(95, 12);
+//		System.out.println("taglist::"+taglist);
+//		System.out.println("yl::"+getYLcount(12, taglist));
+//		System.out.println(ylListSort(taglist));
 		
 
 	}
