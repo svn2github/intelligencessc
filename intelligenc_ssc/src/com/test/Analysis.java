@@ -33,10 +33,10 @@ public class Analysis {
         
         int count = 0;
 		int cc = 0;
-		for (int i = 0; i < numList.size() - 10; i++) {
+		for (int i = 0; i < numList.size() - 8; i++) {
 
 			int tvalue = -1;
-			for (int j = 0; j < 9; j++) {
+			for (int j = 0; j < 6; j++) {
 				tvalue += numList.get(i + j);
 			}
 			if (tvalue == -1) {
