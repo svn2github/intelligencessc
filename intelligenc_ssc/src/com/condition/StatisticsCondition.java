@@ -13,11 +13,11 @@ public class StatisticsCondition {
 
 		for (int i = 100; i < numList.size(); i++) {
 			int num = numList.get(i);
-			tmplist = numList.subList(i-48, i);
+			tmplist = numList.subList(i-26, i);
 			tagList = StatisticsUtil.statisticsSort(tmplist);
 			
 			/*----取数 begin----------------------------------*/
-			tagList = tagList.subList(3, 10);
+			tagList = tagList.subList(2, 10);
 			/*----取数 end----------------------------------*/
 
 			if (ConditionUtil.checksuit(num, tagList)) {

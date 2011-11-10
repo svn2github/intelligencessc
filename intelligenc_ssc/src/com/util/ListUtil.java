@@ -29,6 +29,18 @@ public class ListUtil {
 		return resList;
 	}
 	
+	public static List<Integer> addList(List<Integer> alist,List<Integer> blist){
+		List<Integer> resList = new ArrayList<Integer>();
+		for(int m :alist){
+			resList.add(m);
+		}
+		for(int n :blist){
+			resList.add(n);
+		}
+		
+		return resList;
+		
+	}
 	
 	public static void main(String[] args) {
 		List<Integer> s = new ArrayList<Integer>();
