@@ -14,7 +14,7 @@ public class Hou7 {
 		List<Integer> num4List = new ArrayList<Integer>();
 		List<Integer> num5List = new ArrayList<Integer>();
 
-		numList = SrcUtil.readFile("src/cqssc.txt");
+		numList = SrcUtil.readFileSingle("src/cqssc.txt",4);
 		num4List = SrcUtil.readFileSingle("src/cqssc.txt", 3);
 		num5List = SrcUtil.readFileSingle("src/cqssc.txt", 4);
 		

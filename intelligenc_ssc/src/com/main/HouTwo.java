@@ -62,6 +62,7 @@ public class HouTwo {
 			yllist = YLUtil.ylListSort(numList, 100).subList(97, 100);
 			tlist = ListUtil.subList(tmplist, yllist);
 			taglist = ListUtil.subList(tlist, slist);
+			System.out.println(taglist.size());
 			
 			if (ConditionUtil.checksuit(numList.get(i), taglist) == true) {
 				resList.add(1);
@@ -73,7 +74,7 @@ public class HouTwo {
 		}
 		
 		try {
-			FileWriter writer = new FileWriter("src/res2.txt", true);
+			FileWriter writer = new FileWriter("src/res3.txt", true);
 			for(int i : resList){
 				writer.write(String.valueOf(i)+"\n");
 			}

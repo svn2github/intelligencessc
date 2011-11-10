@@ -43,10 +43,10 @@ public class Integration {
 			nhit1 = ConditionUtil.getNotHitDepth(tmplist1);
 			nhit2 = ConditionUtil.getNotHitDepth(tmplist2);
 			
-			if (nhit1 > 0) {
+			if (nhit1 > 11) {
 				nh1++;
 			}
-			if (nhit2 > 0) {
+			if (nhit2 > 11) {
 				nh2++;
 			}
 			

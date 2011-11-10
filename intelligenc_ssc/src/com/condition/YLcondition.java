@@ -17,10 +17,10 @@ public class YLcondition {
 		for (int i = 100; i < numList.size(); i++) {
 			int num = numList.get(i);
 			tmplist = numList.subList(i-20, i);
-			tagList = YLUtil.ylListSort(tmplist,100);
+			tagList = YLUtil.ylListSort(tmplist,10);
 			
 			/*----取数 begin--------------------------------*/
-			tagList = tagList.subList(0, 70);
+			tagList = tagList.subList(0, 7);
 			/*----取数 end----------------------------------*/
 
 

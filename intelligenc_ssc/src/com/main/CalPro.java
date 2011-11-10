@@ -1,4 +1,4 @@
-package com.test;
+package com.main;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,8 +7,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Analysis {
+import com.condition.ConditionUtil;
+
+public class CalPro {
 	public static void main(String[] args) {
+		
+		/*----------------------read file begin-------------------------*/
 		File file = new File("src/res2.txt");
 		BufferedReader reader = null;
 		List<Integer> numList = new ArrayList<Integer>();
@@ -30,23 +34,24 @@ public class Analysis {
 				}
 			}
 		}
+		/*----------------------read file end-------------------------*/
+		
+		
 
-		int count = 0;
-		int cc = 0;
-		for (int i = 0; i < numList.size() - 10; i++) {
-
-			int tvalue = -1;
-			for (int j = 0; j < 9; j++) {
-				tvalue += numList.get(i + j);
-			}
-			if (tvalue == -1) {
-				count++;
-			} else {
-				cc++;
+		double allcost = 0;
+		double allbonus = 0;
+		double maxcost = 0;
+		int  hd = 0;
+		int nh = 0;
+		for (int i = 12; i < numList.size() - 10; i++) {
+			List<Integer> tmplist = new ArrayList<Integer>();
+			tmplist = numList.subList(i-10, i-1);
+			hd = ConditionUtil.getHitDepth(tmplist);
+			nh = ConditionUtil.getNotHitDepth(tmplist);
+			if(true){
 			}
 		}
 
-		System.out.println(cc + "------" + count);
 
 	}
 
