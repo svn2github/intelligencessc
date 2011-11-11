@@ -13,6 +13,7 @@ public class ConditionUtil {
 		for (int i : numlist) {
 			if (a == i) {
 				tag = true;
+				break;
 			}
 		}
 		return tag;

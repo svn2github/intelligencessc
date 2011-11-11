@@ -17,7 +17,7 @@ public class StatisticsCondition {
 			tagList = StatisticsUtil.statisticsSort(tmplist);
 			
 			/*----取数 begin----------------------------------*/
-			tagList = tagList.subList(2, 10);
+			tagList = tagList.subList(3, 10);
 			/*----取数 end----------------------------------*/
 
 			if (ConditionUtil.checksuit(num, tagList)) {

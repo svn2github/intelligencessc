@@ -55,7 +55,7 @@ public class Integration {
 			if (nhit1 > 6) {
 				nh1++;
 			}
-			if (nhit2 > 7) {
+			if (nhit2 > 6) {
 				nh2++;
 			}
 			resList = resList2;
