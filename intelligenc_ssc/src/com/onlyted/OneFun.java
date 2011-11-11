@@ -18,119 +18,144 @@ public class OneFun {
 		tagList = getRate(resList, 8);
 		int pro = 0;
 		int cost = 0;
+		
+		multiList = getMulti(resList);
 
 		for (int i = 10; i < resList.size(); i++) {
-			List<Integer> tmpList = new ArrayList<Integer>();
-			int depth1 = 0;// hit
-			int depth2 = 0;// no
-			tmpList = resList.subList(i - 9, i - 1);
-			int num = resList.get(i);
-			int ssnum = resList.get(i);
-			depth1 = ConditionUtil.getHitDepth(tmpList);
-			depth2 = ConditionUtil.getNotHitDepth(tmpList);
-			
-			if (depth1 == 1) {
-				multiList.add(multiList.get(i-1));
+			int m = resList.get(i);
+			int n = multiList.get(i);
+			cost += 14 * n;
+			if (m == 1) {
+				pro += 20 * n;
 			}
-			else if (depth1 >= 2) {
-				multiList.add(1);
-
-			}else if(depth2 == 1) {
-				multiList.add(2);
-			}
-			else if(depth2 == 2) {
-				multiList.add(4);
-			}
-			else if(depth2 == 3) {
-				multiList.add(8);
-			}
-			else if(depth2 == 4) {
-				multiList.add(12);
-			}
-			else if(depth2 == 5) {
-				multiList.add(20);
-			}
-			else if(depth2 > 5) {
-				multiList.add(20);
-			}
-
 		}
-
-		System.out.println(cost +"---"+pro);
+		
+		System.out.println(tagList);
+		System.out.println(cost + "---" + pro);
 
 	}
-	
-	public static List<Integer> getMulti(List<Integer> resList){
+
+	public static List<Integer> getMulti(List<Integer> resList) {
 		List<Integer> multiList = new ArrayList<Integer>();
 		int depth1 = 0;// hit
 		int depth2 = 0;
-		
-		depth1 = ConditionUtil.getHitDepth(resList);
-		depth2 = ConditionUtil.getNotHitDepth(resList);
-		
+
 		multiList.add(1);
-		
-		for(int i = 1; i<resList.size();i++){
-			if(multiList.size()<10){
-				if(depth1 > 0){
-					if(depth1 >= 3){
-						multiList.add(1);
-					}else if(depth1 == 1){
-						multiList.add(multiList.get(i-1));
-					}else if(depth1 == 2){
-						multiList.add(multiList.get(i-1));
-					}
-				}else{
-					if(depth2 == 1 ){
-						if(multiList.get(i-1) == 1){
-							multiList.add(2);
-						}else{
-							multiList.add(multiList.get(i-1));
-						}
-						
-					}
-					else if(depth2 == 2){
-						if(multiList.get(i-1) == 2){
-							multiList.add(4);
-						}else{
-							multiList.add(2);
-						}
-					}
-					else if(depth2 == 3){
-						if(multiList.get(i-1) == 4){
-							multiList.add(8);
-						}else{
-							multiList.add(4);
-						}
-					}
-					else if(depth2 == 4){
-						if(multiList.get(i-1) == 8){
-							multiList.add(12);
-						}else{
-							multiList.add(8);
-						}
-					}
-					else if(depth2 == 5){
-						if(multiList.get(i-1) == 12){
-							multiList.add(20);
-						}else{
-							multiList.add(12);
-						}
-					}
-					else if(depth2 > 5){
-							multiList.add(20);
-					}
-				}
-				
-			}else{
-				
+		multiList.add(1);
+		for (int i = 2; i < resList.size(); i++) {
+
+			if (i < 11) {
+				depth1 = ConditionUtil.getHitDepth(resList.subList(0, i));
+				depth2 = ConditionUtil.getNotHitDepth(resList.subList(0, i));
+			} else {
+				depth1 = ConditionUtil.getHitDepth(resList.subList(i - 10, i));
+				depth2 = ConditionUtil.getNotHitDepth(resList
+						.subList(i - 10, i));
 			}
-			
+
+			if (depth1 > 0) {
+				if (depth1 >= 2) {
+					multiList.add(1);
+				} else if (depth1 == 1) {
+					multiList.add(multiList.get(i - 1));
+				}
+			} else {
+
+				if (depth2 == 0) {
+					multiList.add(1);
+				} else if (depth2 == 1) {
+
+					int m = multiList.get(i - 1);
+					if (m == 1) {
+						multiList.add(2);
+					} else if (m == 2) {
+						multiList.add(4);
+					} else if (m == 4) {
+//						System.out.println(i);
+						multiList.add(8);
+					} else if (m == 8) {
+						multiList.add(12);
+					} else if (m == 12) {
+						multiList.add(20);
+					} else if (m == 20) {
+						multiList.add(20);
+					}
+
+				} else if (depth2 == 2) {
+					int m = multiList.get(i - 1);
+					if (m == 1) {
+						multiList.add(2);
+					} else if (m == 2) {
+						multiList.add(4);
+					} else if (m == 4) {
+//						System.out.println(i);
+						multiList.add(8);
+					} else if (m == 8) {
+						multiList.add(12);
+					} else if (m == 12) {
+						multiList.add(20);
+					} else if (m == 20) {
+						multiList.add(20);
+					}
+
+				} else if (depth2 == 3) {
+					int m = multiList.get(i - 1);
+					if (m == 1) {
+						multiList.add(2);
+					} else if (m == 2) {
+						multiList.add(4);
+					} else if (m == 4) {
+						multiList.add(8);
+					} else if (m == 8) {
+						multiList.add(12);
+					} else if (m == 12) {
+						multiList.add(20);
+					} else if (m == 20) {
+						multiList.add(20);
+					}
+
+				} else if (depth2 == 4) {
+					int m = multiList.get(i - 1);
+					if (m == 1) {
+						multiList.add(2);
+					} else if (m == 2) {
+						multiList.add(4);
+					} else if (m == 4) {
+//						System.out.println(i);
+						multiList.add(8);
+					} else if (m == 8) {
+						multiList.add(12);
+					} else if (m == 12) {
+						multiList.add(20);
+					} else if (m == 20) {
+						multiList.add(20);
+					}
+
+				} else if (depth2 == 5) {
+					int m = multiList.get(i - 1);
+					if (m == 1) {
+						multiList.add(2);
+					} else if (m == 2) {
+						multiList.add(4);
+					} else if (m == 4) {
+//						System.out.println(i);
+						multiList.add(8);
+					} else if (m == 8) {
+						multiList.add(12);
+					} else if (m == 12) {
+						multiList.add(20);
+					} else if (m == 20) {
+						multiList.add(20);
+					}
+
+				} else if (depth2 > 5) {
+					multiList.add(20);
+				}
+			}
+
 		}
-		
-		
-		
-		return null;
+
+		return multiList;
 	}
 
 	public static List<Integer> getRate(List<Integer> resList, int len) {
@@ -170,7 +195,7 @@ public class OneFun {
 			int res_len = resList.size();
 
 			if (res_len > 10) {
-				
+
 				tmpRes = resList.subList(res_len - 10, res_len);
 				// break;
 			}
@@ -180,7 +205,7 @@ public class OneFun {
 			tmplist = numList.subList(i - a, i - b);
 			ssList = StatisticsUtil.statisticsSort(tmplist);
 			// if (ConditionUtil.getHitDepth(tmpRes) > sucess_num) {
-			//				
+			//
 			//
 			// // tagList = ssList.subList(3, 10);
 			// } else
