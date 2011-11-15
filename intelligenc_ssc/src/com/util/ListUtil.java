@@ -65,10 +65,13 @@ public class ListUtil {
 			if (tmpList.indexOf(i) == -1 && tmpList.size() < 5) {
 				tmpList.add(i);
 			}
+			else if(resList.indexOf(i) == -1 && resList.size() < 5){
+				resList.add(i);
+			}
 
 		}
 		
-		resList = subList(s1, tmpList);
+//		resList = subList(s1, tmpList);
 //		System.out.println(tmpList);
 //		System.out.println(resList);
 		return resList;
