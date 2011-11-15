@@ -69,8 +69,8 @@ public class ListUtil {
 		}
 		
 		resList = subList(s1, tmpList);
-		System.out.println(tmpList);
-		System.out.println(resList);
+//		System.out.println(tmpList);
+//		System.out.println(resList);
 		return resList;
 	}
 
@@ -99,7 +99,7 @@ public class ListUtil {
 		s2.add(1);
 		s = subList(s1, s2);
 
-		// System.out.println(s);
+		 System.out.println(s);
 	}
 
 }
