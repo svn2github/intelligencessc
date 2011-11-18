@@ -17,150 +17,12 @@ public class FiveFunction2 {
 		numList = SrcUtil.readFileSingle("src/cqssc.txt", 4);
 		resList = getSCHitList_ted(numList, 10, 13, 29, 1);
 		tagList = getRate(resList, 14);
-//		int pro = 0;
-//		int cost = 0;
-//		
-//		multiList = getMulti(resList);
-//
-//		for (int i = 10; i < resList.size(); i++) {
-//			int m = resList.get(i);
-//			int n = multiList.get(i);
-//			if(n!=20 && n!=12 && n!=10 && n!=8 && n!=4){
-//				cost += 14 * n;
-//				if (m == 1) {
-//					pro += 18 * n;
-//				}
-//				
-//			}
-//		}
+
 		
 		System.out.println(tagList);
-//		System.out.println(cost + "---" + pro);
 
 	}
 
-	public static List<Integer> getMulti(List<Integer> resList) {
-		List<Integer> multiList = new ArrayList<Integer>();
-		int depth1 = 0;// hit
-		int depth2 = 0;
-
-		multiList.add(1);
-		multiList.add(1);
-		for (int i = 2; i < resList.size(); i++) {
-
-			if (i < 11) {
-				depth1 = ConditionUtil.getHitDepth(resList.subList(0, i));
-				depth2 = ConditionUtil.getNotHitDepth(resList.subList(0, i));
-			} else {
-				depth1 = ConditionUtil.getHitDepth(resList.subList(i - 10, i));
-				depth2 = ConditionUtil.getNotHitDepth(resList
-						.subList(i - 10, i));
-			}
-
-			if (depth1 > 0) {
-				if (depth1 >= 2) {
-					multiList.add(1);
-				} else if (depth1 == 1) {
-					multiList.add(multiList.get(i - 1));
-				}
-			} else {
-
-				if (depth2 == 0) {
-					multiList.add(1);
-				} else if (depth2 == 1) {
-
-					int m = multiList.get(i - 1);
-					if (m == 1) {
-						multiList.add(2);
-					} else if (m == 2) {
-						multiList.add(4);
-					} else if (m == 4) {
-//						System.out.println(i);
-						multiList.add(8);
-					} else if (m == 8) {
-						multiList.add(12);
-					} else if (m == 12) {
-						multiList.add(20);
-					} else if (m == 20) {
-						multiList.add(20);
-					}
-
-				} else if (depth2 == 2) {
-					int m = multiList.get(i - 1);
-					if (m == 1) {
-						multiList.add(2);
-					} else if (m == 2) {
-						multiList.add(4);
-					} else if (m == 4) {
-//						System.out.println(i);
-						multiList.add(8);
-					} else if (m == 8) {
-						multiList.add(12);
-					} else if (m == 12) {
-						multiList.add(20);
-					} else if (m == 20) {
-						multiList.add(20);
-					}
-
-				} else if (depth2 == 3) {
-					int m = multiList.get(i - 1);
-					if (m == 1) {
-						multiList.add(2);
-					} else if (m == 2) {
-						multiList.add(4);
-					} else if (m == 4) {
-						multiList.add(8);
-					} else if (m == 8) {
-						multiList.add(12);
-					} else if (m == 12) {
-						multiList.add(20);
-					} else if (m == 20) {
-						multiList.add(20);
-					}
-
-				} else if (depth2 == 4) {
-					int m = multiList.get(i - 1);
-					if (m == 1) {
-						multiList.add(2);
-					} else if (m == 2) {
-						multiList.add(4);
-					} else if (m == 4) {
-//						System.out.println(i);
-						multiList.add(8);
-					} else if (m == 8) {
-						multiList.add(12);
-					} else if (m == 12) {
-						multiList.add(20);
-					} else if (m == 20) {
-						multiList.add(20);
-					}
-
-				} else if (depth2 == 5) {
-					int m = multiList.get(i - 1);
-					if (m == 1) {
-						multiList.add(2);
-					} else if (m == 2) {
-						multiList.add(4);
-					} else if (m == 4) {
-//						System.out.println(i);
-						multiList.add(8);
-					} else if (m == 8) {
-						multiList.add(12);
-					} else if (m == 12) {
-						multiList.add(20);
-					} else if (m == 20) {
-						multiList.add(20);
-					}
-
-				} else if (depth2 > 5) {
-					multiList.add(20);
-				}
-			}
-
-		}
-
-		return multiList;
-	}
 
 	public static List<Integer> getRate(List<Integer> resList, int len) {
 		List<Integer> tagList = new ArrayList<Integer>();
@@ -219,29 +81,11 @@ public class FiveFunction2 {
 			// int snum = numList.get(i - 1);
 			tmplist = numList.subList(i - a, i - b);
 			ssList = StatisticsUtil.statisticsSort(tmplist);
-			// if (ConditionUtil.getHitDepth(tmpRes) > sucess_num) {
-			//
-			//
-			// // tagList = ssList.subList(3, 10);
-			// } else
 
 			if (ConditionUtil.getNotHitDepth(tmpRes) > fail_num) {
-//				tagList = ssList.subList(0, 5);
-//				tagList = ListUtil.getMaxFive(tmplist);
 				tagList = 	ListUtil.subList(s1, ListUtil.getMaxFive(tmplist));
-//				tagList = ListUtil.getMaxFive(tmplist);
-				// i += 2;
-				// continue;
-				// for (int n = 0; n < 10; n++) {
-				//
-				// if ((snum + a) % 10 != n && (snum + b) % 10 != n
-				// && (snum + c) % 10 != n) {
-				// tagList.add(n);
-				// }
-				//
-				// }
+//				
 			} else {
-//				tagList = ssList.subList(5, 10);
 				tagList = ListUtil.getMaxFive(tmplist);
 				tagList = 	ListUtil.subList(s1, ListUtil.getMaxFive(tmplist));
 			}
