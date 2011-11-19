@@ -22,8 +22,8 @@ public class Assembly {
 		int nhit2 = 0;
 		
 		numList = SrcUtil.readFileSingle("src/cqssc.txt", 4);
-		resList1 = getSCHitList01(numList, 10, 6, 29, 1);
-		resList2 = getSCHitList02(numList, 10, 6, 29, 1);
+		resList1 = getSCHitList01(numList, 10, 6, 18, 1);
+		resList2 = getSCHitList02(numList, 10, 6, 18, 1);
 		
 		for(int i = 0; i<resList1.size();i++){
 			if (i < 20){
@@ -34,7 +34,7 @@ public class Assembly {
 //				if (hit1 < 18 && hit1 > 0){
 //					resList.add(resList2.get(i));
 //				}else 
-					if(hit1 == 0){
+					if(nhit1 != 0){
 					resList.add(resList1.get(i));
 				}else{
 					resList.add(resList2.get(i));
@@ -43,16 +43,16 @@ public class Assembly {
 		}
 		
 		System.out.println(resList.size());
-		System.out.println(getRate(resList, 5));
-		System.out.println(getRate(resList, 6));
-		System.out.println(getRate(resList, 7));
-		System.out.println(getRate(resList, 8));
-		System.out.println(getRate(resList, 9));
-		System.out.println(getRate(resList, 10));
-		System.out.println(getRate(resList, 11));
-		System.out.println(getRate(resList, 12));
-		System.out.println(getRate(resList, 13));
-		System.out.println(getRate(resList, 14));
+		System.out.println(5+"----"+getRate(resList, 5));
+		System.out.println(6+"----"+getRate(resList, 6));
+		System.out.println(7+"----"+getRate(resList, 7));
+		System.out.println(8+"----"+getRate(resList, 8));
+		System.out.println(9+"----"+getRate(resList, 9));
+		System.out.println(10+"----"+getRate(resList, 10));
+		System.out.println(11+"----"+getRate(resList, 11));
+		System.out.println(12+"----"+getRate(resList, 12));
+		System.out.println(13+"----"+getRate(resList, 13));
+		System.out.println(14+"----"+getRate(resList, 14));
 		
 	}
 		
