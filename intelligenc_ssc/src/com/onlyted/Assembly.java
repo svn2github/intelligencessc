@@ -43,6 +43,11 @@ public class Assembly {
 		}
 		
 		System.out.println(resList.size());
+		System.out.println(0+"----"+getRate(resList, 0));
+		System.out.println(1+"----"+getRate(resList, 1));
+		System.out.println(2+"----"+getRate(resList, 2));
+		System.out.println(3+"----"+getRate(resList, 3));
+		System.out.println(4+"----"+getRate(resList, 4));
 		System.out.println(5+"----"+getRate(resList, 5));
 		System.out.println(6+"----"+getRate(resList, 6));
 		System.out.println(7+"----"+getRate(resList, 7));
