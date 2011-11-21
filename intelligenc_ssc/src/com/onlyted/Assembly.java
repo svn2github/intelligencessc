@@ -10,7 +10,9 @@ import com.util.StatisticsUtil;
 public class Assembly {
 	
 	public static void main(String[] args) {
-		List<Integer> numList = new ArrayList<Integer>();
+		Assembly ass = new Assembly();
+		List<Integer> numList1 = new ArrayList<Integer>();
+		List<Integer> numList2 = new ArrayList<Integer>();
 		List<Integer> resList1 = new ArrayList<Integer>();
 		List<Integer> resList2 = new ArrayList<Integer>();
 		List<Integer> resList = new ArrayList<Integer>();
@@ -21,23 +23,30 @@ public class Assembly {
 		int nhit1 = 0;
 		int nhit2 = 0;
 		
-		numList = SrcUtil.readFileSingle("src/cqssc.txt", 4);
-		resList1 = getSCHitList01(numList, 10, 6, 18, 1);
-		resList2 = getSCHitList02(numList, 10, 6, 18, 1);
+		numList1 = SrcUtil.readFileSingle("src/cqssc.txt", 4);
+		numList2 = SrcUtil.readFileSingle("src/cqssc.txt", 4);
+		
+		
+//		numList2 = numList1;
+		resList1 =  ass.getSCHitList01(numList1, 10, 6, 29, 1);
+		resList2 =  ass.getSCHitList02(numList2, 10, 6, 29, 1);
+		
+		System.out.println("list2"+"----"+getRate(resList1, 1));
+		System.out.println("list1"+"----"+getRate(resList2, 1));
 		
 		for(int i = 0; i<resList1.size();i++){
 			if (i < 20){
 				resList.add(resList1.get(i));
 			}else{
-				hit1=ConditionUtil.getHitDepth(resList2.subList(i-15, i-1));
-				nhit1 =ConditionUtil.getNotHitDepth(resList2.subList(i-15, i-1));
+				nhit1=ConditionUtil.getHitDepth(resList1.subList(i-15, i-1));
+				nhit2 =ConditionUtil.getNotHitDepth(resList2.subList(i-15, i-1));
 //				if (hit1 < 18 && hit1 > 0){
 //					resList.add(resList2.get(i));
 //				}else 
-					if(nhit1 != 0){
-					resList.add(resList1.get(i));
-				}else{
+					if(nhit1 != 0 & nhit1 < 5){
 					resList.add(resList2.get(i));
+				}else {
+					resList.add(resList1.get(i));
 				}
 			}
 		}
@@ -63,7 +72,7 @@ public class Assembly {
 		
 		
 
-	public static List<Integer> getSCHitList01(List<Integer> numList,
+	public  List<Integer> getSCHitList01(List<Integer> numList,
 			int sucess_num, int fail_num, int a, int b) {
 		List<Integer> tmplist = new ArrayList<Integer>();
 		List<Integer> resList = new ArrayList<Integer>();
@@ -104,7 +113,7 @@ public class Assembly {
 		return resList;
 	}
 
-	public static List<Integer> getSCHitList02(List<Integer> numList,
+	public  List<Integer> getSCHitList02(List<Integer> numList,
 			int sucess_num, int fail_num, int a, int b) {
 		List<Integer> tmplist = new ArrayList<Integer>();
 		List<Integer> resList = new ArrayList<Integer>();
