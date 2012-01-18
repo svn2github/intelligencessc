@@ -57,13 +57,16 @@ public class TestWeb {
 		// e.printStackTrace();
 		// }
 		String code = getHtml("http://video.shishicai.cn/haoma/cqssc/list/120.aspx");
-//		System.out.println(code);
+		System.out.println(code);
 		String se = code.substring(21, code.length()-3);
 		System.out.println(se);
 		String ss[] = se.split("},");
 		System.out.println(ss.length);
+		System.out.println("===========");
 		for(String s : ss){
-			System.out.println(s.substring(22,31)+"--"+s.substring(s.length()-13,s.length()-1));
+//			System.out.println(s);
+//			System.out.println(s.substring(61,66));
+			System.out.println(s.substring(22,31)+"--"+s.substring(s.length()-13,s.length()-1)+"--"+s.substring(61,66));
 		}
 	}
 

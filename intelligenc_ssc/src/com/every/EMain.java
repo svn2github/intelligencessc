@@ -50,11 +50,12 @@ public class EMain {
 //        	System.out.println(as[0]+","+as[1]+","+as[2]+","+as[3]+","+as[4]);
         	int a = getmax(as);
 //        	System.out.println(a);
-//        	if(a > 5){
-//        		System.out.println(cc++);
-//        	}
+        	if(a > 18){
+        		System.out.println(cc++);
+        		System.out.println("====");
+        	}
 //        	
-        	if(a == 6){
+        	if(a > 9){
         		
         	
         	
@@ -112,7 +113,7 @@ public class EMain {
         System.out.println(ListUtil.getRate(reses, 5));//11
         System.out.println(ListUtil.getRate(reses, 6));//12
         System.out.println(ListUtil.getRate(reses, 7));//13
-        System.out.println(ListUtil.getRate(reses, 18));
+        System.out.println(ListUtil.getRate(reses, 12));
         System.out.println("len:"+reses.size());
 	}
 	

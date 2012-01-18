@@ -14,21 +14,19 @@ public class FiveFunction {
 		List<Integer> tagList = new ArrayList<Integer>();
 		List<Integer> multiList = new ArrayList<Integer>();
 		numList = SrcUtil.readFileSingle("src/cqssc.txt", 4);
-		resList = getSCHitList_ted(numList, 10, 6, 29, 1);
-		tagList = getRate(resList, 14);
+		resList = getSCHitList_ted(numList, 10, 6, 16, 1);
+		tagList = getRate(resList, 1);
 //		int pro = 0;
 //		int cost = 0;
 //		
 //		multiList = getMulti(resList);
 //
-//		for (int i = 10; i < resList.size(); i++) {
+//		for (int i = 0; i < resList.size(); i++) {
 //			int m = resList.get(i);
 //			int n = multiList.get(i);
-//			if(n!=20 && n!=12 && n!=10 && n!=8 && n!=4){
-//				cost += 14 * n;
+//				cost += 10 * n;
 //				if (m == 1) {
-//					pro += 18 * n;
-//				}
+//					pro += 20 * n;
 //				
 //			}
 //		}
@@ -38,6 +36,14 @@ public class FiveFunction {
 
 	}
 
+	/* 3
+	 * 7
+	 * 15
+	 * 34
+	 * 77
+	 * 173
+	 * 389
+	 */
 	public static List<Integer> getMulti(List<Integer> resList) {
 		List<Integer> multiList = new ArrayList<Integer>();
 		int depth1 = 0;// hit
@@ -57,103 +63,39 @@ public class FiveFunction {
 			}
 
 			if (depth1 > 0) {
-				if (depth1 >= 2) {
-					multiList.add(1);
-				} else if (depth1 == 1) {
-					multiList.add(multiList.get(i - 1));
+				multiList.add(3);
+			} else if(depth2 >0){
+				if(depth2 == 1){
+					multiList.add(7);
+				}else if(depth2 == 2){
+					multiList.add(15);
+				}else if(depth2 == 3){
+					multiList.add(34);
+				}else if(depth2 == 4){
+					multiList.add(77);
+				}else if(depth2 == 5){
+					multiList.add(0);
+				}else if(depth2 == 6){
+					multiList.add(0);
+				}else if(depth2 == 7){
+					multiList.add(0);
+				}else if(depth2 == 8){
+					multiList.add(0);
+				}else if(depth2 == 9){
+					multiList.add(0);
+				}else if(depth2 == 10){
+					multiList.add(0);
+				}else if(depth2 == 11){
+					multiList.add(0);
+				}else if(depth2 == 12){
+					multiList.add(0);
+				}else if(depth2 == 13){
+					multiList.add(0);
+				}else if(depth2 > 14){
+					multiList.add(0);
 				}
-			} else {
 
-				if (depth2 == 0) {
-					multiList.add(1);
-				} else if (depth2 == 1) {
-
-					int m = multiList.get(i - 1);
-					if (m == 1) {
-						multiList.add(2);
-					} else if (m == 2) {
-						multiList.add(4);
-					} else if (m == 4) {
-//						System.out.println(i);
-						multiList.add(8);
-					} else if (m == 8) {
-						multiList.add(12);
-					} else if (m == 12) {
-						multiList.add(20);
-					} else if (m == 20) {
-						multiList.add(20);
-					}
-
-				} else if (depth2 == 2) {
-					int m = multiList.get(i - 1);
-					if (m == 1) {
-						multiList.add(2);
-					} else if (m == 2) {
-						multiList.add(4);
-					} else if (m == 4) {
-//						System.out.println(i);
-						multiList.add(8);
-					} else if (m == 8) {
-						multiList.add(12);
-					} else if (m == 12) {
-						multiList.add(20);
-					} else if (m == 20) {
-						multiList.add(20);
-					}
-
-				} else if (depth2 == 3) {
-					int m = multiList.get(i - 1);
-					if (m == 1) {
-						multiList.add(2);
-					} else if (m == 2) {
-						multiList.add(4);
-					} else if (m == 4) {
-						multiList.add(8);
-					} else if (m == 8) {
-						multiList.add(12);
-					} else if (m == 12) {
-						multiList.add(20);
-					} else if (m == 20) {
-						multiList.add(20);
-					}
-
-				} else if (depth2 == 4) {
-					int m = multiList.get(i - 1);
-					if (m == 1) {
-						multiList.add(2);
-					} else if (m == 2) {
-						multiList.add(4);
-					} else if (m == 4) {
-//						System.out.println(i);
-						multiList.add(8);
-					} else if (m == 8) {
-						multiList.add(12);
-					} else if (m == 12) {
-						multiList.add(20);
-					} else if (m == 20) {
-						multiList.add(20);
-					}
-
-				} else if (depth2 == 5) {
-					int m = multiList.get(i - 1);
-					if (m == 1) {
-						multiList.add(2);
-					} else if (m == 2) {
-						multiList.add(4);
-					} else if (m == 4) {
-//						System.out.println(i);
-						multiList.add(8);
-					} else if (m == 8) {
-						multiList.add(12);
-					} else if (m == 12) {
-						multiList.add(20);
-					} else if (m == 20) {
-						multiList.add(20);
-					}
-
-				} else if (depth2 > 5) {
-					multiList.add(20);
-				}
+				
 			}
 
 		}
@@ -207,26 +149,12 @@ public class FiveFunction {
 			// int snum = numList.get(i - 1);
 			tmplist = numList.subList(i - a, i - b);
 			ssList = StatisticsUtil.statisticsSort(tmplist);
-			// if (ConditionUtil.getHitDepth(tmpRes) > sucess_num) {
-			//
-			//
-			// // tagList = ssList.subList(3, 10);
-			// } else
 
 			if (ConditionUtil.getNotHitDepth(tmpRes) > fail_num) {
-				tagList = ssList.subList(0, 5);
-				// i += 2;
-				// continue;
-				// for (int n = 0; n < 10; n++) {
-				//
-				// if ((snum + a) % 10 != n && (snum + b) % 10 != n
-				// && (snum + c) % 10 != n) {
-				// tagList.add(n);
-				// }
-				//
-				// }
-			} else {
 				tagList = ssList.subList(5, 10);
+				
+			} else {
+				tagList = ssList.subList(0, 5);
 			}
 
 			if (tagList.size() > 0) {

@@ -9,12 +9,11 @@ public class StatisticsUtil {
 	// 按出现次数排序降序
 	public static List<Integer> statisticsSort(List<Integer> numList) {
 
-		int tmp;
-		int tmp2;
 
-		List<Integer> tmpList = new ArrayList<Integer>();
+		Integer tmps[]= new Integer[10];;
 		List<Integer> taglist = new ArrayList<Integer>();
 
+		// 统计0,9 在numlist中出现的次数.
 		for (int i = 0; i < 10; i++) {
 			int count = 0;
 			for (int tvalue : numList) {
@@ -22,28 +21,37 @@ public class StatisticsUtil {
 					count++;
 				}
 			}
-			tmpList.add(count);
+			tmps[i] = count;
+			
 		}
 
+		System.out.println("===================");
+		
+		Integer tags[] = new Integer[10];
 		for (int m = 0; m < 10; m++) {
-			taglist.add(m);
+			tags[m] = m;
 		}
 
-		for (int i = 0; i < tmpList.size(); i++)
-			for (int j = 0; j < tmpList.size() - i - 1; ++j) {
-				if (tmpList.get(j) > tmpList.get(j + 1)) {
+		// 按出现的次数排序.降序
+		for (int i = 0; i < tmps.length; i++) {  
+			   for (int j = i + 1; j < tmps.length; j++) {  
+			    if (tmps[i] < tmps[j]) {  
+			     int temp = tmps[i];  
+			     tmps[i] = tmps[j];  
+			     tmps[j] = temp;  
+			     
+			     int tag = tags[i];  
+			     tags[i] = tags[j];  
+			     tags[j] = tag;
+			    }  
+			    
+			   }   
+		}
 
-					tmp = tmpList.get(j);
-					tmpList.set(j, tmpList.get(j + 1));
-					numList.set(j + 1, tmp);
-
-					tmp2 = taglist.get(j);
-					taglist.set(j, taglist.get(j + 1));
-					taglist.set(j + 1, tmp2);
-				}
-
-			}
-
+		for(int s : tags)
+			taglist.add(s);
+			
+				
 		return taglist;
 
 	}
@@ -51,10 +59,11 @@ public class StatisticsUtil {
 	public static void main(String[] args) {
 		List<Integer> tmpList = new ArrayList<Integer>();
 		List<Integer> taglist = new ArrayList<Integer>();
+		tmpList.add(9);
+		tmpList.add(9);
+		tmpList.add(9);
 		tmpList.add(0);
-		tmpList.add(2);
-		tmpList.add(2);
-		tmpList.add(2);
+		tmpList.add(0);
 		taglist = statisticsSort(tmpList);
 		for (int i = 0; i < taglist.size(); i++) {
 			System.out.println(i + "---" + taglist.get(i));
