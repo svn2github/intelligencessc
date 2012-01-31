@@ -57,9 +57,9 @@ public class ConditionUtil {
 		tlist.add(0);
 		tlist.add(1);
 		tlist.add(1);
-		tlist.add(2);
+		tlist.add(1);
 		System.out.println("depth:"+getHitDepth(tlist));
-		System.out.println("No depth:"+getNotHitDepth(tlist));
+		System.out.println("Not depth:"+getNotHitDepth(tlist));
 		
 	}
 }

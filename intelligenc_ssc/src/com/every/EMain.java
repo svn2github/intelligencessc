@@ -35,11 +35,11 @@ public class EMain {
         	Omit o3 = new Omit();
         	Omit o4 = new Omit();
         	
-        	o0 = OmitUtil.getOmitNum(nums0.subList(i-26, i-1), 5);
-        	o1 = OmitUtil.getOmitNum(nums1.subList(i-26, i-1), 5);
-        	o2 = OmitUtil.getOmitNum(nums2.subList(i-26, i-1), 5);
-        	o3 = OmitUtil.getOmitNum(nums3.subList(i-26, i-1), 5);
-        	o4 = OmitUtil.getOmitNum(nums4.subList(i-26, i-1), 5);
+        	o0 = OmitUtil.getOmitNum(nums0.subList(i-26, i-1), 8);
+        	o1 = OmitUtil.getOmitNum(nums1.subList(i-26, i-1), 8);
+        	o2 = OmitUtil.getOmitNum(nums2.subList(i-26, i-1), 8);
+        	o3 = OmitUtil.getOmitNum(nums3.subList(i-26, i-1), 8);
+        	o4 = OmitUtil.getOmitNum(nums4.subList(i-26, i-1), 8);
         	
         	int a0=o0.getOmitnum();
         	int a1=o1.getOmitnum();
