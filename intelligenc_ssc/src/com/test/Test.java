@@ -13,7 +13,7 @@ public class Test {
 		resList.add(1);
 		resList.add(1);
 		resList.add(0);
-		resList.add(0);
+		resList.add(0); 
 		resList.add(0);
 		resList.add(0);
 		resList.add(0);
