@@ -7,11 +7,7 @@ public class EMain {
 	public static void main(String[] args) {
 		List<Integer> beishu = new ArrayList<Integer>();
 
-		beishu.add(1);
-		beishu.add(2);
-		for (int mk = 2; mk < 30; mk++) {
-			beishu.add(beishu.get(mk - 1) + beishu.get(mk - 2));
-		}
+		
 		List<Integer> tmlist = new ArrayList<Integer>();
 
 		List<Integer> nums0 = new ArrayList<Integer>();
