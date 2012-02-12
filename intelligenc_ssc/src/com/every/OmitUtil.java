@@ -40,15 +40,7 @@ public class OmitUtil {
 
 		}
 
-		// for (int i : numList) {
-		// cc++;
-		// if ((tmpList.indexOf(i) == -1 && tmpList.size() < len)||(i.)) {
-		//
-		// tmpList.add(i);
-		// }else if (tmpList.size() == len){
-		// break;
-		// }
-		// }
+	
 
 		resList = ListUtil.subList(s1, tmpList);
 		o.setOmitnum(cc - 1);
@@ -57,6 +49,45 @@ public class OmitUtil {
 
 	}
 
+	
+	public static Omit getOmitNum_2(List<Integer> alist, int len) {
+		Omit o = new Omit();
+
+		List<Integer> s1 = new ArrayList<Integer>();
+		for(int i = 0 ; i< 100;i++){
+			s1.add(i);
+		}
+
+		int cc = 0;
+		List<Integer> numList = new ArrayList<Integer>();
+		List<Integer> tmpList = new ArrayList<Integer>();
+		List<Integer> resList = new ArrayList<Integer>();
+
+		numList = ListUtil.revertList(alist);
+
+		for (int i = 0; i < numList.size(); i++) {
+			cc++;
+			int tp = numList.get(i);
+			if (tmpList.indexOf(tp) == -1 && tmpList.size() < len) {
+				tmpList.add(tp);
+			} else if (tmpList.indexOf(tp) != -1 && tmpList.size() == len) {
+
+			} else if (tmpList.size() == len) {
+				break;
+			}
+
+		}
+
+	
+
+		resList = ListUtil.subList(s1, tmpList);
+		o.setOmitnum(cc - 1);
+		o.setResList(resList);
+		return o;
+
+	}
+	
+	
 	public static void main(String args[]) {
 		Omit o = new Omit();
 		List<Integer> s1 = new ArrayList<Integer>();
