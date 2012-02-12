@@ -7,7 +7,6 @@ public class EMain {
 	public static void main(String[] args) {
 		List<Integer> beishu = new ArrayList<Integer>();
 
-		
 		List<Integer> tmlist = new ArrayList<Integer>();
 
 		List<Integer> nums0 = new ArrayList<Integer>();
