@@ -13,111 +13,81 @@ public class Emain2 {
 		List<Integer> nums0 = new ArrayList<Integer>();
 		List<Integer> reses = new ArrayList<Integer>();
 
-		nums0 = GetSrc.readFileSingle(0);
+		nums0 = GetSrc.readFileSingle(4);
 		List<Omit> os = new ArrayList<Omit>();
 		int len = nums0.size();
-		for (int i = 30; i < len - 1; i++) {
+		for (int i = 30; i < len - 30; i++) {
 
 			Omit o0 = new Omit();
 
-			//七码
+			// 七码
 			o0 = OmitUtil.getOmitNum(nums0.subList(i - 26, i - 1), 3);
+//			System.out.println(o0.getResList());
 
 			int a0 = o0.getOmitnum();
+//			System.out.println(a0);
+//			System.out.print(nums0.get(i));
 
-
-			if (a0 > 4) {
-				os.add(o0);// 遗漏数,遗漏表
-				tmlist.add(nums0.get(i));//奖号
-			}
-
-
-		}
-		System.out.println("os size:" +os.size() + "==all size:" + len);
-
-		
-		
-		
-		//遗漏表对应的中奖状况
-		for (int j = 0; j < os.size(); j++) {
-			
-			List<Integer> j1 = new ArrayList<Integer>();
-			j1 = os.get(j).getResList();// 遗漏的列表
-			
-			int tm = tmlist.get(j); // 奖号
-			if (checksuit(tm, j1)) {
-				reses.add(1);
-//				System.out.println(tm+"==" + j1+"==="+1);
-			} else {
-				reses.add(0);
-//				System.out.println(tm+"==" + j1+"==="+0);
-			}
-
-		}
-		
-		System.out.println("=================================");
-		//reses : 结果表
-		//os : 遗漏
-		
-		int len1 = reses.size();
-		int tag = 0;
-		while(tag < len1-30){
-			int cost = 0;
-			int pro = 0;
-			int tt = 0;
-			int res = reses.get(tag);
-			//遗漏表
-			List<Integer> la = new ArrayList<Integer>();
-			la = os.get(tag).getResList();
-			
-			int cn = 0;
-			while(true){
-				tag++;
-				List<Integer> tmp = new ArrayList<Integer>();
-				tmp = os.get(tag).getResList();
-				if(checksame(la,tmp)){
-					cn ++;
-				}else{
-					break;
-				}
+			if (a0 > 2) {
+				Omit ot = new Omit();
+				ot = OmitUtil.getOmitNum(nums0.subList(i - 27, i - 2), 3);
+				List<Integer> yllist1 = new ArrayList<Integer>();
+				yllist1 = ot.getResList();
+//				System.out.println(yllist1);
 				
+				List<Integer> yllist = new ArrayList<Integer>();
+
+				List<Integer> numlist = new ArrayList<Integer>();
+
+				yllist = o0.getResList();
+				
+				numlist = nums0.subList(i, i + 30);
+				
+//				if(checksame(yllist,yllist1) && checksuit(nums0.get(i),yllist)){
+//					reses.add(1);
+//				}else {
+					
+					reses.add(getDoubleHit(yllist, numlist));
+//				}
+
+
+
 			}
-			
-			System.out.println(cn);
-			
-			
-			
+
 		}
+		// System.out.println(reses);
+		int p = 0;
+		for (int s : reses) {
+			if (s > p) {
+				p = s;
+			}
+		}
+
+		System.out.println(reses);
+		System.out.println(p);
+
 	}
-	
-	
-	
-	
-	
-	//=======================================================
-	
-	public static int getDoubleHit(List<Integer> yllist,List<Integer> numlist){
-		
-		int count=0;
-		for(int i=0;i<numlist.size()-1;i++){
+
+	// =======================================================
+
+	public static int getDoubleHit(List<Integer> yllist, List<Integer> numlist) {
+
+		int count = 0;
+		for (int i = 0; i < numlist.size() - 1; i++) {
 			count++;
-			if(checksuit(numlist.get(i),yllist) && checksuit(numlist.get(i+1),yllist)){
+			if (checksuit(numlist.get(i), yllist)
+					&& checksuit(numlist.get(i + 1), yllist)) {
 				break;
 			}
-			
+
 		}
 		count++;
-		
-		
-		
+
 		return count;
 	}
-	
-	
-	
-	
-	public static int  getB(int cn){
-		
+
+	public static int getB(int cn) {
+
 		List<Integer> s = new ArrayList<Integer>();
 		s.add(1);
 		s.add(2);
@@ -132,15 +102,11 @@ public class Emain2 {
 		s.add(354);
 		s.add(1300);
 		s.add(1300);
-		
-		
+
 		return cn;
-		
+
 	}
-	
-	
-	
-	
+
 	public static boolean checksuit(int a, List<Integer> numlist) {
 
 		boolean tag = false;
@@ -152,15 +118,13 @@ public class Emain2 {
 		}
 		return tag;
 	}
-	
-	
-	
-	//列表相等
-	public static boolean checksame(List<Integer> l1,List<Integer> l2){
+
+	// 列表相等
+	public static boolean checksame(List<Integer> l1, List<Integer> l2) {
 		int len = l1.size();
 		boolean tag = true;
-		for(int i = 0; i< len; i++){
-			if(l1.get(i)!=l2.get(i)){
+		for (int i = 0; i < len; i++) {
+			if (l1.get(i) != l2.get(i)) {
 				tag = false;
 				break;
 			}
