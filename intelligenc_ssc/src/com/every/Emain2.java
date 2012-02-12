@@ -106,6 +106,7 @@ public class Emain2 {
 			}
 			
 		}
+		count++;
 		
 		
 		
