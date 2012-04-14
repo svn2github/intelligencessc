@@ -35,7 +35,7 @@ public class Main {
 		s2.add(8);
 		s2.add(9);
 
-		for (int i = 10; i < list4.size(); i++) {
+		for (int i = 0; i < list4.size(); i++) {
 			resa.add(checksuit(list4.get(i), s1));
 			resb.add(checksuit(list4.get(i), s2));
 		}
@@ -94,14 +94,22 @@ public class Main {
 			res.add(pro - cost);
 		}
 		double ss = 0.0;
+		int t1 =0;int t2 = 0;
 
 		for (int l = 0; l < res.size(); l++) {
+			if (res.get(l) > 0 ){
+				t1++;
+			}else {
+				t2++;
+			}
+			
 			ss += res.get(l);
 		}
 
 		System.out.println(res);
 		System.out.println(count);
 		System.out.println(ss);
+		System.out.println(">0----"+t1+"   <0----"+t2);
 	}
 
 	public static int checksuit(int a, List<Integer> numlist) {
