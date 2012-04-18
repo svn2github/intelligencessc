@@ -52,9 +52,7 @@ public class Main {
 			double pro = 1.9;
 			for (int m = j + 1; m < j + 120; m++) {
 				int a0 = resa.get(m - 1);
-				int b0 = resb.get(m - 1);
 				int a1 = resa.get(m);
-				int b1 = resb.get(m);
 
 				if (a0 == 1) {
 
@@ -62,11 +60,6 @@ public class Main {
 						pro = pro * 1.9;
 						pro = getOneS(pro);
 						cost += 1.0;
-
-						if (pro / cost > 2.4 && pro - cost > 10) {
-							res.add(pro - cost);
-							break;
-						}
 					} else if (a1 == 0) {
 						pro = 1.9;
 						cost += 1.0;
@@ -81,12 +74,13 @@ public class Main {
 						cost += 1.0;
 						pro = pro * 1.9;
 						pro = getOneS(pro);
-						if (pro / cost > 2.4 && pro - cost > 10) {
-							res.add(pro - cost);
-							break;
-						}
+						
 					}
 
+				}
+				if (pro / cost > 2.4 && pro - cost > 10) {
+					res.add(pro - cost);
+					break;
 				}
 
 			}
