@@ -46,11 +46,15 @@ public class Main {
 		List<Double> res = new ArrayList<Double>();
 		int count = 0;
 
-		for (int j = 0; j < resa.size(); j += 120) {
+		int tag = 104;
+		for (int j = 0; j < resa.size(); j += tag) {
 			count++;
 			double cost = 2.0;
 			double pro = 1.9;
-			for (int m = j + 1; m < j + 120; m++) {
+			for (int m = j + 1; m < j + tag; m++) {
+				if(m > resa.size()-1 ){
+					break;
+				}
 				int a0 = resa.get(m - 1);
 				int a1 = resa.get(m);
 
