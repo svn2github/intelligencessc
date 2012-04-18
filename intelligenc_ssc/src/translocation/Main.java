@@ -3,6 +3,7 @@ package translocation;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.util.ListUtil;
 import com.util.SrcUtil;
 
 public class Main {
@@ -40,13 +41,11 @@ public class Main {
 			resb.add(checksuit(list4.get(i), s2));
 		}
 
-		List<Double> proa = new ArrayList<Double>();
-		List<Double> prob = new ArrayList<Double>();
 
 		List<Double> res = new ArrayList<Double>();
 		int count = 0;
 
-		int tag = 104;
+		int tag = 80;
 		for (int j = 0; j < resa.size(); j += tag) {
 			count++;
 			double cost = 2.0;
@@ -82,32 +81,46 @@ public class Main {
 					}
 
 				}
-				if (pro / cost > 2.4 && pro - cost > 10) {
+				if (pro / cost > 3 && pro-cost >20) {
 					res.add(pro - cost);
 					break;
 				}
 
 			}
-
 			res.add(pro - cost);
 		}
-		double ss = 0.0;
-		int t1 =0;int t2 = 0;
-
-		for (int l = 0; l < res.size(); l++) {
-			if (res.get(l) > 0 ){
-				t1++;
-			}else {
-				t2++;
-			}
-			
-			ss += res.get(l);
-		}
-
+		
 		System.out.println(res);
-		System.out.println(count);
-		System.out.println(ss);
-		System.out.println(">0----"+t1+"   <0----"+t2);
+		List<Integer> fi = new ArrayList<Integer>();
+
+		double li = 0.0;
+		for (int l = 0; l < res.size(); l++) {
+			li += res.get(l);
+			if (res.get(l) > 0 ){
+				fi.add(1);
+			}else {
+				fi.add(0);
+			}
+		}
+		
+		List<Integer> hi = new ArrayList<Integer>();
+		for(int mm=20;mm<fi.size();mm++){
+			List<Integer> templ = new ArrayList<Integer>();
+			templ=fi.subList(mm-20, mm);
+			hi.add(getNotHitDepth(templ));
+		}
+		
+		int max = 0;
+		for(int m : hi){
+			if(m > max){
+				max = m;
+			}
+		}
+		System.out.println("==:"+max);
+		System.out.println("pro=:"+getOneS(li));
+		System.out.println("count=:"+count);
+		System.out.println(hi);
+
 	}
 
 	public static int checksuit(int a, List<Integer> numlist) {
@@ -130,4 +143,35 @@ public class Main {
 		return r;
 	}
 
+	public static int getHitDepth(List<Integer> numList) {
+		numList = ListUtil.revertList(numList);
+		int count = 0;
+		int res = 0;
+		for (int i = 0; i < numList.size(); i++) {
+			res += numList.get(i);
+			if (res < i + 1) {
+				break;
+			}
+			count++;
+		}
+		return count;
+
+	}
+
+	public static int getNotHitDepth(List<Integer> numList) {
+		numList = ListUtil.revertList(numList);
+		int rest = 0;
+		int count = 0;
+		for (int i = 0; i < numList.size(); i++) {
+			rest += numList.get(i);
+			
+			if (rest > 0) {
+				break;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	
 }
