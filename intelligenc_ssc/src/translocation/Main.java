@@ -25,14 +25,14 @@ public class Main {
 		List<Integer> s1 = new ArrayList<Integer>();
 		List<Integer> s2 = new ArrayList<Integer>();
 
-		s1.add(0);
 		s1.add(1);
 		s1.add(2);
 		s1.add(3);
-		s1.add(4);
-		s2.add(5);
+		s1.add(5);
+		s1.add(7);
+		s2.add(0);
+		s2.add(4);
 		s2.add(6);
-		s2.add(7);
 		s2.add(8);
 		s2.add(9);
 
@@ -45,7 +45,7 @@ public class Main {
 		List<Double> res = new ArrayList<Double>();
 		int count = 0;
 
-		int tag = 80;
+		int tag = 120;
 		for (int j = 0; j < resa.size(); j += tag) {
 			count++;
 			double cost = 2.0;
@@ -81,7 +81,7 @@ public class Main {
 					}
 
 				}
-				if (pro / cost > 3 && pro-cost >20) {
+				if (pro / cost > 2 && pro-cost > 13) {
 					res.add(pro - cost);
 					break;
 				}
@@ -106,7 +106,7 @@ public class Main {
 		List<Integer> hi = new ArrayList<Integer>();
 		for(int mm=20;mm<fi.size();mm++){
 			List<Integer> templ = new ArrayList<Integer>();
-			templ=fi.subList(mm-20, mm);
+			templ=fi.subList(mm-20, mm-1);
 			hi.add(getNotHitDepth(templ));
 		}
 		
