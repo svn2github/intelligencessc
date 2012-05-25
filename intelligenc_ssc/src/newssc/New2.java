@@ -54,7 +54,7 @@ public class New2 {
 	
 	public static List<Integer> getRes(List<Integer> tlist){
 		List<Integer> rlist = new ArrayList<Integer>();
-		for (int j = 30; j < tlist.size(); j += 5) {
+		for (int j = 30; j < tlist.size(); j += 0) {
 			List<Integer> li = new ArrayList<Integer>();
 			li = tlist.subList(j - 10, j);
 
