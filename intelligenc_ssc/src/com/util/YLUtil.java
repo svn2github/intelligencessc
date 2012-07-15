@@ -52,15 +52,15 @@ public class YLUtil {
 	}
 
 	public static void main(String[] args) {
-//		List<Integer> taglist = new ArrayList<Integer>();
-//		for (int i = 99; i >= 0; i--) {
-//			taglist.add(i);
-//		}
-//		taglist.set(98, 12);
-//		taglist.set(95, 12);
-//		System.out.println("taglist::"+taglist);
-//		System.out.println("yl::"+getYLcount(12, taglist));
-//		System.out.println(ylListSort(taglist));
+		List<Integer> taglist = new ArrayList<Integer>();
+		for (int i = 10; i >= 0; i--) {
+			taglist.add(i);
+		}
+		taglist.set(0, 8);
+		taglist.set(1, 8);
+		System.out.println("taglist::"+taglist);
+		System.out.println("yl::"+getYLcount(12, taglist));
+		System.out.println(ylListSort(taglist,4));
 		
 
 	}
