@@ -50,17 +50,40 @@ public class YLUtil {
 
 		return taglist;
 	}
+	
+	//判断一个字符串的遗漏次数,
+	public static int getlistYLcount(List<Integer> numList,List<Integer> list) {
+		
+		int tag = 0;
+		
+		for (int i : list){
+			if(numList.indexOf(i) == -1){
+				tag ++;
+			}else {
+				break;
+			}
+		}
+		
+		return tag;
+	}
 
 	public static void main(String[] args) {
 		List<Integer> taglist = new ArrayList<Integer>();
 		for (int i = 10; i >= 0; i--) {
 			taglist.add(i);
 		}
+		
 		taglist.set(0, 8);
 		taglist.set(1, 8);
+		
+		List<Integer> tlist = new ArrayList<Integer>();
+		tlist.add(1);
+		tlist.add(2);
 		System.out.println("taglist::"+taglist);
-		System.out.println("yl::"+getYLcount(12, taglist));
+		System.out.println("tlist::"+tlist);
+		System.out.println("yl::"+getYLcount(0, taglist));
 		System.out.println(ylListSort(taglist,4));
+		System.out.println(getlistYLcount(tlist,taglist));
 		
 
 	}
