@@ -8,8 +8,8 @@ import com.util.SrcUtil;
 
 public class Main {
 
-	public static final int QS = 30;
-	public static final double PF = 1.93;
+	public static final int QS = 6; //qishu
+	public static final double PF = 1.9; //profit
 
 	public static void main(String[] args) {
 		// double y = 9.999999;
@@ -19,8 +19,8 @@ public class Main {
 		List<Integer> list4 = new ArrayList<Integer>();// 个
 		// 01-...
 		// 02-...
-		list4 = SrcUtil.readFileSingle("src/cqssc.txt", 4);
-		System.out.println(list4.size());
+		list4 = SrcUtil.readFileSingle("src/cqssc.txt", 3);
+		System.out.println("list size:"+list4.size());
 
 		List<Integer> resa = new ArrayList<Integer>();
 		List<Integer> resb = new ArrayList<Integer>();
@@ -41,6 +41,8 @@ public class Main {
 		s2.add(7);
 		s2.add(8);
 		s2.add(9);
+		
+		
 		
 		sa.add(0);
 		sa.add(2);
@@ -72,7 +74,7 @@ public class Main {
 		for (int i = 0 ;i<res1.size();i++){
 			res.add(res1.get(i)+res2.get(i));
 		}
-		System.out.println(res);
+//		System.out.println(res);
 
 		List<Integer> fi = new ArrayList<Integer>();
 
@@ -101,7 +103,7 @@ public class Main {
 		}
 		System.out.println("==:" + max);
 		System.out.println("pro=:" + getOneS(li));
-		System.out.println(hi);
+//		System.out.println(hi);
 
 	}
 
@@ -116,7 +118,6 @@ public class Main {
 				int a1 = resa.get(m);
 
 				if (a0 == 1) {
-
 					if (a1 == 1) {
 						pro = pro * PF;
 						pro = getOneS(pro);
