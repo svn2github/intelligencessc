@@ -16,9 +16,9 @@ public class Main {
 		List<Integer> blist = new ArrayList<Integer>();
 		List<Integer> clist = new ArrayList<Integer>();
 		
-		alist = SrcUtil.readFileSingle("src/cqssc.txt", 0);
-		blist = SrcUtil.readFileSingle("src/cqssc.txt", 1);
-		clist = SrcUtil.readFileSingle("src/cqssc.txt", 2);
+		alist = SrcUtil.readFileSingle("src/cq.txt", 2);
+		blist = SrcUtil.readFileSingle("src/cq.txt", 3);
+		clist = SrcUtil.readFileSingle("src/cq.txt", 4);
 		
 		int len = alist.size();
 		
@@ -35,7 +35,6 @@ public class Main {
 			tempalist = alist.subList(i-20, i-1);
 			tempblist = blist.subList(i-20, i-1);
 			tempclist = clist.subList(i-20, i-1);
-			
 			List<Integer> l = new ArrayList<Integer>();
 			l.addAll(tempalist);
 			l.addAll(tempblist);
@@ -55,7 +54,13 @@ public class Main {
 			int b = blist.get(i);
 			int c = clist.get(i);
 			String s1 = String.valueOf(r1) + String.valueOf(r2) + String.valueOf(r3) +String.valueOf(r4);
-			System.out.println(a +"---"+ b +"---"+ c );
+			
+			
+			System.out.println("begin........................................................");
+			System.out.print(tempalist);
+			System.out.print(tempblist);
+			System.out.print(tempclist);
+			System.out.println(a +""+ b +""+ c );
 			System.out.println(s1 );
 			cost += 20;
 			
@@ -69,6 +74,7 @@ public class Main {
 			}else if (a == b && b!= c && a != c){
 				if (s1.indexOf(String.valueOf(a)) != -1 && s1.indexOf(String.valueOf(c)) != -1 ){
 					pro += 570;
+					
 					System.out.println("---------------a == b && b!= c && a != c------------------------" );
 				}
 			}else if (a == c && a!= b && c != b){
@@ -83,9 +89,13 @@ public class Main {
 				}
 			}
 			
+			System.out.println(cost + "=====" +pro );
+			
+			System.out.println("end........................................................");
+			
 		}
 		
-		
+		System.out.println("len:"+ len );
 		System.out.println("cost:"+ cost );
 		System.out.println(" pro:"+ pro );
 		
