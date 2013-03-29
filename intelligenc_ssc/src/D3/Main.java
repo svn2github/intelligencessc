@@ -54,7 +54,7 @@ public class Main {
 			int b = blist.get(i);
 			int c = clist.get(i);
 			String s1 = String.valueOf(r1) + String.valueOf(r2) + String.valueOf(r3) +String.valueOf(r4);
-			
+//			s1 = "1234";
 			
 			System.out.println("begin........................................................");
 			System.out.print(tempalist);
@@ -62,29 +62,29 @@ public class Main {
 			System.out.print(tempclist);
 			System.out.println(a +""+ b +""+ c );
 			System.out.println(s1 );
-			cost += 20;
+			cost += 32;
 			
 			if (a != b && a !=c  & b!= c){
 				if (s1.indexOf(String.valueOf(a)) != -1 && s1.indexOf(String.valueOf(b)) != -1 && s1.indexOf(String.valueOf(c)) != -1){
-					pro += 280;
+					pro += 300;
 					System.out.println("---------------a != b && a !=c  & b!= c------------------------" );
 				}
 			}else if (a ==b && b == c ){
 				
 			}else if (a == b && b!= c && a != c){
 				if (s1.indexOf(String.valueOf(a)) != -1 && s1.indexOf(String.valueOf(c)) != -1 ){
-					pro += 570;
+					pro += 600;
 					
 					System.out.println("---------------a == b && b!= c && a != c------------------------" );
 				}
 			}else if (a == c && a!= b && c != b){
 				if (s1.indexOf(String.valueOf(a)) != -1 && s1.indexOf(String.valueOf(b)) != -1 ){
-					pro += 570;
+					pro += 600;
 					System.out.println("--------------a == c && a!= b && c != b-------------------------" );
 				}
 			}else if (b == c && b != a && c != a){
 				if (s1.indexOf(String.valueOf(b)) != -1 && s1.indexOf(String.valueOf(a)) != -1 ){
-					pro += 570;
+					pro += 600;
 					System.out.println("------------------b == c && b != a && c != a---------------------" );
 				}
 			}
