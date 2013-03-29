@@ -25,7 +25,6 @@ public class StatisticsUtil {
 			
 		}
 
-		System.out.println("===================");
 		
 		Integer tags[] = new Integer[10];
 		for (int m = 0; m < 10; m++) {
@@ -64,6 +63,7 @@ public class StatisticsUtil {
 		tmpList.add(9);
 		tmpList.add(0);
 		tmpList.add(0);
+		System.out.println(tmpList);
 		taglist = statisticsSort(tmpList);
 		for (int i = 0; i < taglist.size(); i++) {
 			System.out.println(i + "---" + taglist.get(i));
