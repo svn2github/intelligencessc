@@ -28,8 +28,20 @@ public class Hou2Main {
 
 		list3 = SrcUtil.readFileSingle("src/cqssc.txt", 3);
 		list4 = SrcUtil.readFileSingle("src/cqssc.txt", 4);
+		List<Integer> list = new ArrayList<Integer>();
 		int len = list3.size();
 		
+		
+		for (int i = 0 ; i < len ; i ++){
+			int a = list3.get(i);
+			int b = list4.get(i);
+			int c = a*10 +b;
+			list.add(c);
+		}
+		
+		int count = 0 ;
+		
+		List<Integer> retList = new ArrayList<Integer>();
 		for (int i = 30;i < len -1; i ++){
 			
 			List<Integer> tl3 = new ArrayList<Integer>();
@@ -38,27 +50,49 @@ public class Hou2Main {
 			tl3 = ylListSort(list3.subList(i-25, i-1),10);
 			tl4 = ylListSort(list4.subList(i-25, i-1),10);
 			
-			int a3 = tl3.get(9);
-			int a4 = tl4.get(9);
+			int a3 = tl3.get(1);
+			int a4 = tl4.get(1);
 			
 			int h3 = list3.get(i);
 			int h4 = list4.get(i);
 			
+			boolean tag = true;
 			
 			
 			
+			
+			if(tag){
+				retList.add(1);
+			}else {
+				retList.add(0);
+			}
 			
 			
 			
 		}
-		
+		System.out.println(count + "--" + len);
 		
 		
 		
 		
 	}
 	
-	
+	//
+	public static List<Integer> merger2(List<Integer> numList1,
+			List<Integer> numList2) {
+		List<Integer> retList = new ArrayList<Integer>();
+		int len1 = numList1.size();
+		int len2 = numList2.size();
+		for (int i = 0; i < len1; i++) {
+			int a = numList1.get(i);
+			for (int j = 0; j < len1; j++) {
+				int b = numList2.get(j);
+				int c = a*10 + b;
+				retList.add(c);
+			}
+		}
+		return retList;
+	}
 	
 	
 	// 按照遗漏顺序降序  //按照出现顺序排序 降序
