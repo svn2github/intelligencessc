@@ -42,13 +42,13 @@ public class Hou2Main {
 		int count = 0 ;
 		
 		List<Integer> retList = new ArrayList<Integer>();
-		for (int i = 30;i < len -1; i ++){
+		for (int i = 200;i < len -1; i ++){
 			
 			List<Integer> tl3 = new ArrayList<Integer>();
 			List<Integer> tl4 = new ArrayList<Integer>();
 			
-			tl3 = ylListSort(list3.subList(i-25, i-1),10);
-			tl4 = ylListSort(list4.subList(i-25, i-1),10);
+			tl3 = ylListSort(list3.subList(i-190, i-1),10);
+			tl4 = ylListSort(list4.subList(i-190, i-1),10);
 			
 			int a3 = tl3.get(1);
 			int a4 = tl4.get(1);
@@ -85,7 +85,7 @@ public class Hou2Main {
 		int len2 = numList2.size();
 		for (int i = 0; i < len1; i++) {
 			int a = numList1.get(i);
-			for (int j = 0; j < len1; j++) {
+			for (int j = 0; j < len2; j++) {
 				int b = numList2.get(j);
 				int c = a*10 + b;
 				retList.add(c);
