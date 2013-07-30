@@ -47,8 +47,8 @@ public class Hou2Main {
 			List<Integer> tl3 = new ArrayList<Integer>();
 			List<Integer> tl4 = new ArrayList<Integer>();
 			
-			tl3 = ylListSort(list3.subList(i-190, i-1),10);
-			tl4 = ylListSort(list4.subList(i-190, i-1),10);
+			tl3 = ylListSort(list3.subList(i-30, i-1),10);
+			tl4 = ylListSort(list4.subList(i-30, i-1),10);
 			
 			int a3 = tl3.get(1);
 			int a4 = tl4.get(1);
@@ -57,6 +57,8 @@ public class Hou2Main {
 			int h4 = list4.get(i);
 			
 			boolean tag = true;
+			
+			
 			
 			
 			
@@ -95,8 +97,12 @@ public class Hou2Main {
 	}
 	
 	
+	
+	
+	
+	
 	// 按照遗漏顺序降序  //按照出现顺序排序 降序
-		public static List<Integer> ylListSort(List<Integer> numList, int len) {
+	public static List<Integer> ylListSort(List<Integer> numList, int len) {
 			int tmp;
 			int tmp2;
 			numList = ListUtil.revertList(numList);
