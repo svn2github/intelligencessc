@@ -26,6 +26,9 @@ public class Hou2Main {
 		List<Integer> list3 = new ArrayList<Integer>();// 十
 		List<Integer> list4 = new ArrayList<Integer>();// 个
 
+		
+		List<Integer> list2 = new ArrayList<Integer>();// 百
+		
 		list3 = SrcUtil.readFileSingle("src/cqssc.txt", 3);
 		list4 = SrcUtil.readFileSingle("src/cqssc.txt", 4);
 		List<Integer> list = new ArrayList<Integer>();
@@ -55,7 +58,12 @@ public class Hou2Main {
 			int h3 = list3.get(i);
 			int h4 = list4.get(i);
 
-			boolean tag = true;
+			boolean tag = false;
+			
+			if (h3 == 1 || h3 == 9||h3 == 0 || h3 == 6|| h3 == 2 || h3 == 4 || h3 == 8  ) {
+				tag = true;
+			}
+			
 
 			if (tag) {
 				retList.add(1);
@@ -64,8 +72,77 @@ public class Hou2Main {
 			}
 
 		}
-		System.out.println(count + "--" + len);
+//		System.out.println(retList);
+		
+		List<Integer> hList = new ArrayList<Integer>();
+		for  (int i = 20; i < retList.size(); i ++){
+			List<Integer> temp = new ArrayList<Integer>();
+			temp = retList.subList(i-20,i);
+			
+			int a = getNotHitDepth (temp);
+			hList.add(a);
+		}
+		
+		System.out.println(hList);
+		List<Integer> bsList = new ArrayList<Integer>();
 
+		bsList.add(1);
+		bsList.add(2);
+		for  (int i = 2;i < 30;i ++){
+			int a = bsList.get(i-1) + bsList.get(i-2);
+			bsList.add(a);
+		}
+		
+//		System.out.println(bsList);
+		List<Integer> proList = new ArrayList<Integer>();
+		List<Integer> costList = new ArrayList<Integer>();
+		for ( int i = 0 ; i <hList.size();i++ ){
+			int a = hList.get(i);
+			if(a == 0) {
+				
+			}
+			
+			
+		}
+		
+
+	}
+	
+	
+	public static double getOneS(double t) {
+		double temp = t * 10;
+		int it = (int) temp;
+		double r = (double) it / 10;
+		return r;
+	}
+
+	public static int getHitDepth(List<Integer> numList) {
+		numList = ListUtil.revertList(numList);
+		int count = 0;
+		int res = 0;
+		for (int i = 0; i < numList.size(); i++) {
+			res += numList.get(i);
+			if (res < i + 1) {
+				break;
+			}
+			count++;
+		}
+		return count;
+
+	}
+
+	public static int getNotHitDepth(List<Integer> numList) {
+		int rest = 0;
+		int count = 0;
+		for (int i = 0; i < numList.size(); i++) {
+			rest += numList.get(i);
+
+			if (rest > 0) {
+				break;
+			}
+			count++;
+		}
+		return count;
 	}
 
 	//
