@@ -72,38 +72,30 @@ public class Hou2Main {
 			}
 
 		}
-//		System.out.println(retList);
+		System.out.println(retList);
 		
 		List<Integer> hList = new ArrayList<Integer>();
-		for  (int i = 20; i < retList.size(); i ++){
-			List<Integer> temp = new ArrayList<Integer>();
-			temp = retList.subList(i-20,i);
+		List<Integer> proList = new ArrayList<Integer>();   //周期累计
+		
+		List<Integer> costList = new ArrayList<Integer>();  //周期累计
+		proList.add(0);
+		costList.add(0);
+		for  (int i = 1; i < retList.size(); i ++){
+			int a = retList.get(i);
+			int pro = proList.get(i-1);
+			int cost = costList.get(i-1);
 			
-			int a = getNotHitDepth (temp);
-			hList.add(a);
-		}
-		
-		System.out.println(hList);
-		List<Integer> bsList = new ArrayList<Integer>();
-
-		bsList.add(1);
-		bsList.add(2);
-		for  (int i = 2;i < 30;i ++){
-			int a = bsList.get(i-1) + bsList.get(i-2);
-			bsList.add(a);
-		}
-		
-//		System.out.println(bsList);
-		List<Integer> proList = new ArrayList<Integer>();
-		List<Integer> costList = new ArrayList<Integer>();
-		for ( int i = 0 ; i <hList.size();i++ ){
-			int a = hList.get(i);
-			if(a == 0) {
+			if (a == 0 ){
+				if (pro > 0){
+					proList.add(5);
+				}
 				
+			}else if (a == 1){
+				proList.add(5);
+				costList.add(14);
 			}
-			
-			
 		}
+		
 		
 
 	}
