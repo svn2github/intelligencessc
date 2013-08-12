@@ -72,32 +72,116 @@ public class Hou2Main {
 			}
 
 		}
-		System.out.println(retList);
-		
-		List<Integer> hList = new ArrayList<Integer>();
-		List<Integer> proList = new ArrayList<Integer>();   //周期累计
-		
-		List<Integer> costList = new ArrayList<Integer>();  //周期累计
-		proList.add(0);
-		costList.add(0);
-		for  (int i = 1; i < retList.size(); i ++){
-			int a = retList.get(i);
-			int pro = proList.get(i-1);
-			int cost = costList.get(i-1);
+		List<Ret> Rets = new ArrayList<Ret>();
+//		for (int a: retList) {
 			
-			if (a == 0 ){
-				if (pro > 0){
-					proList.add(5);
+//			System.out.println(a);
+//		}
+		
+		int t0 = retList.get(0);
+		Ret rc0 = new Ret();
+		rc0.setBs(1);
+		rc0.setCost(14);
+		rc0.setAllCost(14);
+		
+		rc0.setPro(0);
+		rc0.setAllPro(0);
+		
+		Ret rc1 = new Ret();
+		rc1.setBs(2);
+		rc1.setCost(14);
+		rc1.setAllCost(42);
+		rc1.setPro(0);
+		rc1.setAllPro(0);
+		
+		
+		Rets.add(rc0);
+		Rets.add(rc1);
+		for(int i = 2 ; i < retList.size(); i ++) {
+			Ret rci = new Ret();
+			Ret rci1 = new Ret();
+			Ret rci2 = new Ret();
+			
+			rci2 = Rets.get(i-2);
+			int pp_bs = rci2.getBs();
+			
+			rci1 = Rets.get(i-1);
+			int p_bs = rci1.getBs();
+			int p_allcost =  rci1.getAllCost();
+			int p_allPro = rci1.getAllPro();
+			int p_all = p_allPro - p_allcost;
+			
+			int a = retList.get(i);
+			int bs = getBS(p_bs,pp_bs,p_all);
+			
+			int cost = bs * 14;
+			int allCost = 0;
+			int pro = 0;
+			int allPro = 0;
+			
+			if (a == 0) {
+				if (p_all >= 0) {
+					allCost = cost;
+				}else {
+					allCost = p_allcost + cost ;
+				}
+			}else if (a == 1){
+				pro = bs * 19; 
+				if (p_all >= 0) {
+					allCost = cost ;
+					allPro = pro;
+				}else {
+					allCost= p_allcost + cost ;
+					allPro = p_allPro + pro;
+				}
+			}
+			
+			System.out.println(a+" "+bs+" "+cost+" "+allCost+" "+pro + " " + allPro);
+			
+			rci.setAllCost(allCost);
+			rci.setAllPro(allPro);
+			rci.setBs(bs);
+			rci.setCost(cost);
+			rci.setPro(pro);
+			Rets.add(rci);
+		}
+
+	}
+	
+	
+	
+	//1,2,7,27,27,27
+	public static int getBS (int p_bs,int pp_bs, int p_all){
+		int a = 0;
+		int b =p_bs;
+		int c = pp_bs;
+		if (p_all >= 0){
+			a = 1;
+		}else if (p_all < 0){
+			if (b == 1){
+				a = 2;
+			}else if (b == 2){
+				if (c == 1){
+					a = 2 ; 
+				}else if (c == 2){
+					a = 7;
 				}
 				
-			}else if (a == 1){
-				proList.add(5);
-				costList.add(14);
+			}else if (b == 7){
+				if (c == 2){
+					a = 7 ; 
+				}else if (c == 7){
+					a = 27;
+				}
+			}else if (b == 27){
+				if (c == 7){
+					a = 27 ; 
+				}else if (c == 27){
+					a = 27;
+				}
 			}
 		}
-		
-		
-
+		return a;
 	}
 	
 	
@@ -108,6 +192,8 @@ public class Hou2Main {
 		return r;
 	}
 
+	
+	
 	public static int getHitDepth(List<Integer> numList) {
 		numList = ListUtil.revertList(numList);
 		int count = 0;
@@ -199,5 +285,46 @@ public class Hou2Main {
 
 		return ylcs;
 	}
+	
 
+}
+
+
+class Ret {
+	private int bs ;
+	private int cost ;
+	private int pro ;
+	private int allCost ;
+	private int allPro ;
+	public int getBs() {
+		return bs;
+	}
+	public void setBs(int bs) {
+		this.bs = bs;
+	}
+	public int getCost() {
+		return cost;
+	}
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+	public int getPro() {
+		return pro;
+	}
+	public void setPro(int pro) {
+		this.pro = pro;
+	}
+	public int getAllCost() {
+		return allCost;
+	}
+	public void setAllCost(int allCost) {
+		this.allCost = allCost;
+	}
+	public int getAllPro() {
+		return allPro;
+	}
+	public void setAllPro(int allPro) {
+		this.allPro = allPro;
+	}
+	
 }
