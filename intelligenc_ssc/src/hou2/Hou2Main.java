@@ -122,8 +122,14 @@ public class Hou2Main {
 			if (a == 0) {
 				if (p_all >= 0) {
 					allCost = cost;
+					if (bs != 1){
+						allPro = p_allPro + pro;
+					}
 				}else {
 					allCost = p_allcost + cost ;
+					if (bs != 1){
+						allPro = p_allPro + pro;
+					}
 				}
 			}else if (a == 1){
 				pro = bs * 19; 
