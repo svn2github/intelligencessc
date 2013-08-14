@@ -1,7 +1,10 @@
 package hou2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 import com.util.ListUtil;
 import com.util.SrcUtil;
@@ -59,12 +62,29 @@ public class Hou2Main {
 			int h4 = list4.get(i);
 
 			boolean tag = false;
+			Random rnd = new Random();
+			int ha = rnd.nextInt(10);
+			int hb = rnd.nextInt(10);
+			int hc = rnd.nextInt(10);
+			int h = h3*10 + h4;
 			
-			if (h3 == 1 || h3 == 9||h3 == 0 || h3 == 6|| h3 == 2 || h3 == 4 || h3 == 8  ) {
-				tag = true;
+			List<Integer> rd = createRandom(100,70);
+			
+//			if (h3 == 1 || h3 == 3||h3 == 5 || h3 == 7|| h3 == 9 || h3 == 4 || h3 == 0  ) {
+//				tag = true;
+//			}
+//			
+			
+			for (int abc : rd) {
+				if (abc == h){
+					tag = true;
+					break;
+				}
 			}
 			
-
+//			if (h3 != ha && h3!= hb && h3!=hc){
+//				tag = true;
+//			}
 			if (tag) {
 				retList.add(1);
 			} else {
@@ -114,9 +134,9 @@ public class Hou2Main {
 			int a = retList.get(i);
 			int last_a = retList.get(i-1);
 			int bs = getBS(p_bs,pp_bs,p_all,last_a);
-			if (p_all < -100){
-				bs = 1;
-			}
+//			if (p_all > -80){
+//				bs = 1;
+//			}
 			
 			int cost = bs * 14;
 			int allCost = 0;
@@ -171,6 +191,8 @@ public class Hou2Main {
 		Ret rd = new Ret();
 		int rr = 0 ;
 		int mk = 0 ;
+		int ac = 0 ;
+		int ap = 0 ;
 		for(Ret r : Rets) {
 			mk ++;
 			int nn = r.getAllCost();
@@ -184,12 +206,48 @@ public class Hou2Main {
 				rr= nn;
 				rd = r;
 			}
+			
+			ap += r.getPro();
+			ac += r.getCost();
 		}
 
 		System.out.println(rd.getAllCost() +"---"+ rd.getAllPro());
+		System.out.println(ap +"---"+ ac);
+		System.out.println(rr);
+		
+		
 	}
 	
-	
+	public static List createRandom(int max,int count){
+		
+		List<Integer> list = new ArrayList<Integer>();
+        
+        while(true)  
+        {
+            int num=(int)(Math.random() * max);
+            //如果有重复就跳过本次
+            boolean isHave=false;
+            for (int j = 0; j < list.size(); j++)
+            {
+                if (num == list.get(j))
+                {
+                    isHave=true;
+                    break;
+                }
+            }
+            if(!isHave)
+            {
+            list.add(num);
+            }
+            //数组正好还有10个不同数字时，跳出循环
+            if(list.size()==count)
+            {
+                break;
+            }
+        }
+//        System.out.println(list.size()+"  "+list);
+		return list;
+	}
 	
 	//1,2,7,27,27,27   //	int p_all = p_allPro - p_allcost;
 	public static int getBS (int p_bs,int pp_bs, int p_all,int last_a){
