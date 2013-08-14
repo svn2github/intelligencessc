@@ -112,7 +112,8 @@ public class Hou2Main {
 			int p_all = p_allPro - p_allcost;
 			
 			int a = retList.get(i);
-			int bs = getBS(p_bs,pp_bs,p_all);
+			int last_a = retList.get(i-1);
+			int bs = getBS(p_bs,pp_bs,p_all,last_a);
 			
 			int cost = bs * 14;
 			int allCost = 0;
@@ -156,34 +157,29 @@ public class Hou2Main {
 	
 	
 	
-	//1,2,7,27,27,27
-	public static int getBS (int p_bs,int pp_bs, int p_all){
+	//1,2,7,27,27,27   //	int p_all = p_allPro - p_allcost;
+	public static int getBS (int p_bs,int pp_bs, int p_all,int last_a){
 		int a = 0;
 		int b =p_bs;
 		int c = pp_bs;
 		if (p_all >= 0){
 			a = 1;
-		}else if (p_all < 0){
-			if (b == 1){
-				a = 2;
-			}else if (b == 2){
-				if (c == 1){
-					a = 2 ; 
-				}else if (c == 2){
-					a = 7;
+		}else {
+			if (last_a == 1){
+				a =p_bs ;
+			}else {
+				p_all = p_all - p_all*2 ;
+				int p_pro = 0;
+				if (p_all%2 ==0){
+					p_pro = p_all/2 ;
+				}else {
+					p_pro = p_all/2+1;
 				}
 				
-			}else if (b == 7){
-				if (c == 2){
-					a = 7 ; 
-				}else if (c == 7){
-					a = 27;
-				}
-			}else if (b == 27){
-				if (c == 7){
-					a = 27 ; 
-				}else if (c == 27){
-					a = 27;
+				if (p_pro % 5 ==0){
+					a = p_pro / 5 ;
+				}else {
+					a = p_pro / 5 + 1;
 				}
 			}
 		}
