@@ -133,9 +133,9 @@ public class Hou2Main {
 			
 			int a = retList.get(i);
 			int last_a = retList.get(i-1);
-			int bs = getBS1(p_bs,pp_bs,p_all,last_a);
-			if (p_all > -500){
-				bs = 1;
+			int bs = getBS(p_bs,pp_bs,p_all,last_a);
+			if (bs > 20){
+				bs = 20;
 			}
 			
 			int cost = bs * 14;
@@ -213,7 +213,7 @@ public class Hou2Main {
 
 		System.out.println(rd.getAllCost() +"---"+ rd.getAllPro());
 		System.out.println(ac +"---"+ ap);
-		System.out.println(rr);
+		System.out.println("maxcost:" + rr);
 		
 		
 	}
