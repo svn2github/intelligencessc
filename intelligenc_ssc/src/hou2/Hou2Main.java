@@ -114,6 +114,9 @@ public class Hou2Main {
 			int a = retList.get(i);
 			int last_a = retList.get(i-1);
 			int bs = getBS(p_bs,pp_bs,p_all,last_a);
+			if (p_all < -100){
+				bs = 1;
+			}
 			
 			int cost = bs * 14;
 			int allCost = 0;
@@ -125,21 +128,32 @@ public class Hou2Main {
 					allCost = cost;
 					if (bs != 1){
 						allPro = p_allPro + pro;
+					}else {
+						allPro = 0;
 					}
+					
 				}else {
 					allCost = p_allcost + cost ;
 					if (bs != 1){
 						allPro = p_allPro + pro;
+					}else {
+						allPro = 0;
 					}
 				}
 			}else if (a == 1){
 				pro = bs * 19; 
 				if (p_all >= 0) {
-					allCost = cost ;
+					allCost = cost;
 					allPro = pro;
 				}else {
-					allCost= p_allcost + cost ;
-					allPro = p_allPro + pro;
+					if (bs != 1){
+						allCost= p_allcost + cost ;
+						allPro = p_allPro + pro;
+					}else {
+						allCost = cost;
+						allPro = pro;
+					}
+				
 				}
 			}
 			
@@ -152,7 +166,27 @@ public class Hou2Main {
 			rci.setPro(pro);
 			Rets.add(rci);
 		}
+		
+		
+		Ret rd = new Ret();
+		int rr = 0 ;
+		int mk = 0 ;
+		for(Ret r : Rets) {
+			mk ++;
+			int nn = r.getAllCost();
+//			if (nn == 23444190){
+//				System.out.println("mk:" + mk);
+//			}
+			if (mk > 56000 && mk < 56113){
+				System.out.println("mk:" +r.getBs()+ "--"+ r.getAllCost() +"---"+ r.getAllPro());
+			}
+			if (nn > rr){
+				rr= nn;
+				rd = r;
+			}
+		}
 
+		System.out.println(rd.getAllCost() +"---"+ rd.getAllPro());
 	}
 	
 	
@@ -175,7 +209,6 @@ public class Hou2Main {
 				}else {
 					p_pro = p_all/2+1;
 				}
-				
 				if (p_pro % 5 ==0){
 					a = p_pro / 5 ;
 				}else {
